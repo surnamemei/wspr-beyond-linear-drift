@@ -1,0 +1,26 @@
+Dear Editor,
+
+I am pleased to submit the manuscript entitled “Beyond First-Order Drift: Practical WSPR-2 Decoding Robustness under Nonstationary Frequency Instability” for consideration as a Regular Manuscript in IEEE Access.
+
+This work presents an end-to-end computational characterization of WSPR-2 decoding robustness using the unmodified production WSJT-X 3.0.2 wsprd decoder. The study distinguishes frequency evolution that lies within the decoder’s constant-plus-first-order drift model from beyond-model residual frequency dynamics, and quantifies their effects on decode probability near the weak-signal operating threshold.
+
+The manuscript includes validation of an independent WSPR-2 waveform implementation against the official 162-symbol reference, a calibrated AWGN baseline, SNR-dependent first-order drift boundaries, controlled beyond-first-order residual experiments, matched factorial analysis, synthetic thermal and stochastic frequency-instability models, Allan-deviation-parameterized oscillator-noise sweeps, and an auxiliary eight-message generalization check. The analysis also evaluates compact residual-severity descriptors and shows that no single tested scalar descriptor generalizes uniformly across all tested trajectory families.
+
+I believe the manuscript is relevant to IEEE Access because it connects weak-signal communication, practical decoder behavior, signal processing, oscillator-frequency stability, and reproducible computational experimentation. The work is intentionally scoped as an implementation-specific decoder-characterization study rather than a decoder-independent WSPR limit. No RF hardware, measured oscillator trace, or field-propagation measurement is claimed.
+
+The code, trial-level data, analysis scripts, decoder provenance, and deterministic seed specifications are publicly available at:
+
+GitHub: https://github.com/surnamemei/wspr-beyond-linear-drift
+Zenodo: https://doi.org/10.5281/zenodo.22957460
+
+This manuscript is original, has not been published as a journal or conference article, and is not under consideration by another journal or conference. The sole author has approved the submitted version. Any use of generative AI tools in code development and manuscript drafting/editing is disclosed in the Acknowledgment section of the manuscript.
+
+Thank you for considering this manuscript for publication in IEEE Access.
+
+Sincerely,
+Jinghang Mei
+School of Electrical and Computer Engineering
+The University of Sydney
+Sydney, NSW, Australia
+Email: jmei0175@uni.sydney.edu.au
+ORCID: 0009-0007-2901-3285
