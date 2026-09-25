@@ -1,0 +1,312 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xurl}
+\graphicspath{{figures/}}
+
+\title{Beyond First-Order Drift: Practical WSPR-2 Decoding Robustness under Nonstationary Frequency Instability}
+\author{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Frequency error in a weak-signal transmission has components that a receiver may search explicitly and components outside its trajectory model. We measured this distinction for a generated WSPR-2 signal decoded by the unmodified production WSJT-X 3.0.2 \texttt{wsprd}. The independent waveform implementation matched all 162 reference channel symbols; complex additive white Gaussian noise (AWGN) was calibrated to the 2500-Hz WSPR SNR convention. The AWGN-only 50\% decode point was $-31.519$ dB by interpolation. Exact decoder-aligned linear drift, an orthogonal quadratic residual, thermal-settling shape probes, and stochastic frequency-modulation (FM) families were evaluated on saved, seeded trial grids. Signed linear-drift 50\% boundaries contracted from $+0.6981/-0.7105$ Hz at $-30.0$ dB to $+0.2985/-0.3313$ Hz at $-31.0$ dB. The corresponding orthogonal-quadratic 50\% amplitude decreased from $0.4408$ to $0.2026$ Hz. A balanced factorial fit measured a linear-drift $\times$ residual interaction coefficient of $10.1555$ log-odds/Hz$^2$ on its fitted scale. Among tested scalar trajectory descriptors, maximum phase excursion improved smooth-shape held-out scores, whereas residual-frequency RMS scored better on the separate held-out random-walk set. A further 5,400-trial sweep of synthetic Allan-targeted FM processes related fractional-frequency stability, carrier scaling, projected residuals, and decode outcomes. The results characterize this decoder and these generated waveforms and grids; no transmitter hardware, measured oscillator, or propagation impairment was tested.
+\end{abstract}
+
+\begin{IEEEkeywords}
+WSPR-2, weak-signal decoding, frequency drift, oscillator frequency noise, Allan deviation, model mismatch.
+\end{IEEEkeywords}
+
+\section{Introduction}
+WSPR-2 combines long symbol duration with low-rate coding for reception at weak signal-to-noise ratio (SNR). The original WSPR account describes its narrow four-tone signal and propagation-beacon purpose~\cite{taylor2010}, and the current official guide documents its protocol and 2500-Hz SNR reference~\cite{wsjtxguide}. Frequency variation across the active frame can be represented by a center-frequency offset, a linear drift, or more complex time dependence. Those categories matter because the tested production decoder searches constant frequency and a linear symbol-index drift~\cite{wsjtx302}, while an imposed residual orthogonal to both remains outside that search trajectory class.
+
+Related work addresses different observables. A transmitter study measured WSPR-2 spectral width and examined reference stability and frequency-generation choices~\cite{johnson2026}. FST4W work used reported spectral spread and SNR to distinguish propagation modes~\cite{griffiths2023}; the WSJT-X guide discusses frequency instability and channel Doppler spread for FST4/FST4W~\cite{wsjtxguide}. Frequency-metrology methods characterize fractional-frequency noise and Allan-deviation slopes~\cite{riley2008}, while WSPRNet reports have been used in studies of HF propagation response to solar activity~\cite{frissell2019}. None of those sources supplies a decode-probability map for the exact generated trajectories and production decoder tested here. Conversely, this study does not measure transmitter width, Doppler spread, oscillator hardware, or field propagation.
+
+The investigation proceeds from an AWGN-only baseline to decoder-aligned drift, controlled quadratic residual curvature, joint conditions, projected thermal and stochastic shapes, and synthetic Allan-targeted FM processes. It reports a decoder-specific map of observed decode probabilities and compares simple residual-severity descriptors over the tested families. It does not set a general WSPR frequency-stability requirement.
+
+\section{WSPR-2 Decoder and Experimental Framework}
+\subsection{WSPR-2 waveform and production decoder}
+All decoder outcomes use the unmodified production \texttt{wsprd} from WSJT-X 3.0.2, with release package and matching source provenance recorded in the repository~\cite{wsjtx302}. The generated WSPR-2 active frame contains 162 symbols, 256 complex samples per symbol at 375 samples/s, and therefore lasts 110.592 s. The C2 input contains the required timing padding. The decoder source searches center frequency and a symbol-index linear drift; this is a property of this implementation, not an assertion about all WSPR receivers. The decoded Type-1 message is \texttt{K1ABC FN42 33}.
+
+\subsection{Independent waveform validation}
+The Python encoder's 162 channel symbols matched the official WSJT-X \texttt{wsprsim} reference vector at all 162 positions. Its generated clean C2 signal was decoded by production \texttt{wsprd} as \texttt{K1ABC FN42 33}. The source archive identity and clean-decode checks are recorded with the repository's waveform validation. This gate checks experimental input compatibility; it does not itself establish noisy-channel performance.
+
+\subsection{AWGN calibration and decode-success criterion}
+The repository defines injected SNR in a 2500-Hz reference bandwidth~\cite{wsjtxguide}. For active complex-signal power $P_s$, complex noise power at the 375-Hz C2 sample rate is
+\begin{align}
+P_n &= P_s\frac{375}{2500}10^{-\mathrm{SNR}_{2500,\mathrm{dB}}/10},\label{eq:awgn}\\
+\operatorname{Var}(n_I)&=\operatorname{Var}(n_Q)=P_n/2.\nonumber
+\end{align}
+Independent Gaussian in-phase and quadrature components were applied with deterministic seeds. The $375/2500$ factor corresponds to 8.239 dB between bandwidth conventions, compared with the official simulator's rounded 8.2-dB adjustment. For $N$ trials, $P_{\mathrm{decode}}$ is the number of exact decodes of \texttt{K1ABC FN42 33} divided by $N$; a partial or different message is not a success. Binomial cell intervals in saved summaries are Wilson 95\% intervals. Decoder-reported SNR is retained as a diagnostic rather than substituted for injected SNR.
+
+\subsection{Frequency-trajectory decomposition}
+At symbol index $i=0,\ldots,161$, define $x_i=(i-81)/81$ and the design matrix $X=[\mathbf{1},x]$. A symbol-rate frequency trajectory is decomposed as
+\begin{align}
+\Delta f_i &= c_0+c_1x_i+r_i,\label{eq:decomposition}\\
+\begin{bmatrix}c_0\\c_1\end{bmatrix}
+&=\arg\min_b\|\Delta f-Xb\|_2^2,\qquad X^Tr\approx 0.\nonumber
+\end{align}
+The fitted constant-plus-linear component is decoder-representable in form; the projected residual is a controlled beyond-linear component. Symbol-wise frequency offsets are held for the 256 samples of each symbol and applied by continuous phase accumulation. Phase descriptors use the same 375-Hz sample timing and the residual rather than the unprojected raw process. Orthogonality refers to the discrete 162-symbol $[1,x]$ basis within floating-point precision.
+
+\subsection{Statistical methodology}
+Saved experiments use stated condition grids and deterministic seeds. Where comparisons were designed with matched noise, the same seed set was reused across trajectory conditions at a fixed SNR. Trial-level outcomes, summary arithmetic, row counts, and seed-set checks are documented with their outputs. SNR50, signed D50, and A50 values are piecewise-linear interpolations between observed probability points, not extrapolations. The balanced interaction analysis fits additive (M0) and drift $\times$ residual (M1) logistic models and reports ordinary and cluster-robust uncertainty plus cluster bootstrap. Descriptor models are evaluated on held-out trajectory families and later external sets; Brier and log loss are predictive scores for the specified splits.
+
+\begin{table}[t]
+\caption{AWGN Baseline Thresholds and SNR Reporting}
+\label{tab:awgn}
+\centering\footnotesize
+\begin{tabular}{lr}
+\toprule
+Quantity & Value \\
+\midrule
+SNR at 90\% decoding & $-30.286$ dB \\
+SNR at 50\% decoding & $-31.519$ dB \\
+SNR at 10\% decoding & $-32.729$ dB \\
+Mean reported minus injected SNR & $+0.111$ dB \\
+Median reported minus injected SNR & $0.0$ dB \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\parbox{\columnwidth}{\footnotesize Thresholds are piecewise interpolations. The SNR differences use 1,201 successful decodes with reported SNR.}
+\end{table}
+
+\section{Robustness Within the Decoder Model Class}
+\subsection{Exact first-order drift model}
+The decoder-aligned trajectory is
+\begin{equation}
+\Delta f_i=\frac{D}{2}x_i=\frac{D}{2}\frac{i-81}{81},\quad i=0,\ldots,161.
+\label{eq:linear}
+\end{equation}
+It matches the source-inspected \texttt{wsprd} drift convention~\cite{wsjtx302}. The endpoint at $i=161$ is slightly below $+D/2$; the implementation uses the exact expression rather than a sample-wise endpoint-to-endpoint substitute. Positive and negative drift conditions remain separate in the raw results.
+
+\subsection{Noiseless and high-SNR controls}
+Strict noiseless controls at $D=0,\pm1,\pm2,\pm3,\pm4$ Hz decoded the expected message in each one-trial condition. At injected $-20$ dB, all nine corresponding conditions decoded 20/20 trials. These controls show that the waveform and exact drift implementation can be decoded across that tested grid with ample SNR. The same strict-control records show 141/200 at zero drift, 8/200 at $+2$ Hz, and 7/200 at $-2$ Hz at $-31$ dB. These finite-sample observations do not imply an invariant drift tolerance.
+
+\subsection{SNR-dependent linear-drift boundary}
+The AWGN-only baseline had interpolated SNR90, SNR50, and SNR10 values of $-30.286$, $-31.519$, and $-32.729$ dB, respectively (Table~\ref{tab:awgn}, Fig.~\ref{fig:awgn}). Across 1,201 successful decodes with reported SNR, the mean reported-minus-injected difference was $+0.111$ dB and the median was $0.0$ dB.
+
+The refined signed-drift map used 200 trials per SNR $\times$ drift cell. Interpolated positive/negative D50 values were $+0.6981/-0.7105$ Hz at $-30.0$ dB, $+0.4831/-0.4886$ Hz at $-30.5$ dB, and $+0.2985/-0.3313$ Hz at $-31.0$ dB (Table~\ref{tab:boundaries}, Fig.~\ref{fig:linear}). At $-29.5$ dB the tested drift values did not bracket 50\%, so no D50 is assigned. At $-31.5$ dB the reported zero-drift D50 is a boundary observation where the zero-drift cell is at 50\%; it is not a measured nonzero drift allowance. The source heatmap retains separate positive and negative panels.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{awgn_decode_probability.png}
+\caption{AWGN-only production-\texttt{wsprd} $P_{\mathrm{decode}}$ versus injected SNR (dB, 2500-Hz reference), with Wilson intervals and an interpolated 50\% point.}
+\label{fig:awgn}
+\end{figure}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.72\textwidth]{linear_drift_heatmap.png}\\[1mm]
+\includegraphics[width=.43\textwidth]{linear_drift_boundary.png}
+\caption{Linear-drift response. Top: coarse/refined $P_{\mathrm{decode}}$ maps with positive and negative drift in separate panels and no sign averaging. Bottom: signed, grid-interpolated D50 (Hz) versus injected SNR (dB).}
+\label{fig:linear}
+\end{figure*}
+
+\begin{table}[t]
+\caption{Grid-Interpolated 50\% Decode Boundaries}
+\label{tab:boundaries}
+\centering\footnotesize
+\begin{tabular}{rrrr}
+\toprule
+SNR (dB) & $D_{50}^{+}$ (Hz) & $D_{50}^{-}$ (Hz) & $A_{50}$ (Hz) \\
+\midrule
+$-29.5$ & n.b. & n.b. & 0.5776 \\
+$-30.0$ & $+0.6981$ & $-0.7105$ & 0.4408 \\
+$-30.5$ & $+0.4831$ & $-0.4886$ & 0.3110 \\
+$-31.0$ & $+0.2985$ & $-0.3313$ & 0.2026 \\
+$-31.5$ & 0.0 & 0.0 & n.t. \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\parbox{\columnwidth}{\footnotesize n.b.: not bracketed by observed drift points. n.t.: not tested. Zero at $-31.5$ dB is a zero-drift boundary, not a nonzero tolerance.}
+\end{table}
+
+\section{Beyond First-Order Frequency Dynamics}
+\subsection{Orthogonal quadratic residual construction}
+To test model mismatch without a hidden constant or linear term, set $q=x^2$, compute $\beta=\arg\min_b\|q-Xb\|_2^2$, and form
+\begin{equation}
+\begin{aligned}
+q_{\perp}&=q-X\beta,\\
+q_{\mathrm{norm}}&=\frac{q_{\perp}}{\max_i|q_{\perp,i}|},\\
+r_i&=A_{\mathrm{res}}q_{\mathrm{norm},i}.
+\end{aligned}
+\label{eq:quadratic}
+\end{equation}
+No coefficient is hard-coded. At $A_{\mathrm{res}}=1$ Hz, saved discrete dot products of $r$ with the constant and $x$ columns were $-1.710\times10^{-14}$ and $4.441\times10^{-16}$ Hz, respectively. This is an orthogonal test shape, not a physical oscillator model. The pilot held nominal drift at zero.
+
+\subsection{Decode-probability boundary}
+The quadratic pilot used 100 trials per tested SNR $\times$ amplitude cell. Its bracketed A50 estimates were 0.5776, 0.4408, 0.3110, and 0.2026 Hz at $-29.5$, $-30.0$, $-30.5$, and $-31.0$ dB, respectively (Table~\ref{tab:boundaries}, Fig.~\ref{fig:quadratic}). They measure the amplitude of this normalized basis at the 50\% crossing, not a threshold for arbitrary shapes.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.83\textwidth]{quadratic_residual_heatmap.png}\\[1mm]
+\includegraphics[width=.48\textwidth]{quadratic_residual_boundary.png}
+\caption{Orthogonal-quadratic response. Top: observed $P_{\mathrm{decode}}$ by residual amplitude (Hz) and injected SNR (dB). Bottom: grid-interpolated A50 (Hz) where the 50\% crossing is bracketed.}
+\label{fig:quadratic}
+\end{figure*}
+
+\subsection{Linear $\times$ quadratic non-additivity}
+The balanced factorial set tested SNR $-30.0/-30.5/-31.0$ dB, $D=0/0.5$ Hz, and $A_{\mathrm{res}}=0/0.25/0.5$ Hz, with 200 trials in each of 18 cells (3,600 trials). Within each SNR the six conditions shared matched noise seeds. M1 added $D\times A_{\mathrm{res}}$ to the SNR, D, and A main effects. Its fitted interaction coefficient was 10.1555 log-odds/Hz$^2$ (ordinary SE 0.9125; cluster-robust SE 0.8389; 1,000-fit cluster-bootstrap 95\% interval [8.5377, 11.9454]). M0 versus M1 AIC was 3534.398 versus 3405.319, BIC 3559.153 versus 3436.263, and in-sample Brier 0.160689 versus 0.153797 (Table~\ref{tab:interaction}, Fig.~\ref{fig:interaction}). This is non-additivity on the fitted log-odds scale over the tested grid; the fit alone does not identify a decoder mechanism.
+
+\begin{table}[t]
+\caption{Balanced Linear $\times$ Quadratic Interaction}
+\label{tab:interaction}
+\centering\footnotesize
+\begin{tabular}{lr}
+\toprule
+Interaction estimate (log-odds/Hz$^2$) & 10.1555 \\
+Ordinary SE & 0.9125 \\
+Cluster-robust SE & 0.8389 \\
+Cluster-bootstrap 95\% interval & [8.5377, 11.9454] \\
+\midrule
+Metric & M0 / M1 \\
+\midrule
+Log-likelihood & $-1763.199/-1697.660$ \\
+AIC & 3534.398 / 3405.319 \\
+BIC & 3559.153 / 3436.263 \\
+Brier score & 0.160689 / 0.153797 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\parbox{\columnwidth}{\footnotesize 18 cells, 200 trials/cell; matched noise seeds within SNR. M0/M1 scores are in sample.}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.86\textwidth]{balanced_interaction.png}
+\caption{Observed balanced-factorial $P_{\mathrm{decode}}$ versus quadratic amplitude (Hz), separated by exact linear drift and injected SNR (dB).}
+\label{fig:interaction}
+\end{figure*}
+
+\section{Physically Motivated Frequency-Instability Models}
+\subsection{Thermal-settling residuals}
+A deterministic shape probe evaluates
+\begin{equation}
+f_{\mathrm{raw}}(t)=K\left[1-\exp(-t/\tau)\right]
+\label{eq:thermal}
+\end{equation}
+at the 162 symbol-center times and removes its least-squares $[1,x]$ component. For $K=1$ Hz, residual peak amplitudes $g_\tau=\max|r|$ are 0.322981, 0.141356, and 0.048772 Hz for $\tau=30,60,120$ s. Their normalized correlations with the \emph{negative} quadratic residual are 0.956853, 0.988241, and 0.996991. These time constants were selected as shape probes, not inferred from measured hardware. Amplitude-matched thermal and signed-quadratic trials used matched noise seeds. At $-30$ dB and a 0.5-Hz peak residual, observed thermal decode probabilities were 0.68, 0.50, and 0.46 for $\tau=30,60,120$ s; signed-quadratic controls were 0.35 for positive and 0.36 for negative amplitude. Shape correlation alone does not specify equal measured decode probability in these cells (Fig.~\ref{fig:thermal}).
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.91\textwidth]{fig5_thermal_vs_negative_quadratic.png}
+\caption{Projected and normalized thermal-settling residual shapes for the tested $\tau$ values compared with the negative controlled quadratic basis. The $\tau$ values are shape probes, not measured hardware constants.}
+\label{fig:thermal}
+\end{figure*}
+
+\subsection{Stochastic random-walk FM}
+A separate, uncalibrated symbol-rate probe starts at $f_{\mathrm{raw},0}=0$ and takes Gaussian increments,
+\begin{equation}
+f_{\mathrm{raw},i}=f_{\mathrm{raw},i-1}+\epsilon_i,\qquad
+\epsilon_i\sim\mathcal{N}(0,\sigma_{\mathrm{step}}^2),
+\label{eq:randomwalk}
+\end{equation}
+before $[1,x]$ projection. Preflight medians of projected RMS frequency were 0.01510, 0.02993, 0.06002, 0.12067, and 0.23888 Hz for $\sigma_{\mathrm{step}}=0.005,0.01,0.02,0.04,0.08$ Hz. Decoder tests used the latter four levels, 200 trials per cell. At SNR $-30.0$ dB, observed probabilities were 0.935/0.945/0.815/0.345 in ascending $\sigma_{\mathrm{step}}$; at $-30.5$ dB, 0.885/0.795/0.675/0.175; and at $-31.0$ dB, 0.745/0.620/0.355/0.035. This random walk is a stochastic trajectory probe and has no measured oscillator calibration.
+
+\subsection{Allan-deviation-parameterized white/flicker/random-walk FM}
+The later synthetic FM preflight generated 1-s-cadence fractional-frequency processes $y(t)$ of white, flicker, and random-walk type, scaled to ensemble targets $\sigma_y(1\,\mathrm{s})=10^{-10},3\times10^{-10},10^{-9},3\times10^{-9},10^{-8}$ over carriers 7/10/14/28 MHz. It used 500 independent trajectories per family $\times$ carrier $\times$ stability cell. The process was sampled by zero-order hold at validated WSPR symbol centers, mapped through
+\begin{equation}
+\Delta f(t)=f_c y(t),
+\label{eq:carrier}
+\end{equation}
+and projected off $[1,x]$. The preflight's fitted raw Allan-deviation slopes were $-0.5026$, $-0.0279$, and $+0.4387$ for white, flicker, and random-walk FM; corresponding projected slopes were $-0.4344$, $+0.0116$, and $+0.4367$. They satisfy the configured $\pm0.18$ qualitative-slope check against $-1/2$, 0, and $+1/2$, respectively~\cite{riley2008} (Fig.~\ref{fig:allan}). These are finite-cadence synthetic generators, not traceable metrology references.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.71\textwidth]{allan_deviation_by_noise_type.png}\\[1mm]
+\includegraphics[width=.88\textwidth]{residual_rms_vs_carrier.png}
+\caption{Synthetic FM preflight. Top: fractional-frequency Allan deviation versus averaging time (s), with qualitative slope guides. Bottom: projected residual-frequency RMS (Hz) versus carrier-scaling parameter (MHz).}
+\label{fig:allan}
+\end{figure*}
+
+\subsection{Carrier-frequency scaling}
+The production-decoder physical-parameter sweep selected carriers 10/14/28 MHz, targets $\sigma_y(1\,\mathrm{s})=10^{-9},3\times10^{-9},10^{-8}$, and SNR $-30.5/-31.0$ dB, with 100 trials in each of 54 cells (5,400 trials). The oscillator trajectory was reused across the two SNR values and AWGN seeds matched across physical cells within an SNR. At 10 MHz, target $10^{-8}$, and $-31$ dB, median projected frequency RMS was 0.09746/0.15570/0.34478 Hz for white/flicker/random-walk FM, with observed $P_{\mathrm{decode}}=0.53/0.22/0.01$. For random-walk FM at target $3\times10^{-9}$ and $-31$ dB, the 10/14/28-MHz cells had median RMS 0.11282/0.14218/0.27776 Hz and probabilities 0.43/0.27/0.02 (Table~\ref{tab:physical}, Fig.~\ref{fig:physical}). These are cell estimates under synthetic processes; the carrier variable is the fractional-to-hertz scaling parameter, not a comparison of measured transmitters.
+
+\begin{table*}[t]
+\caption{Representative Synthetic Oscillator Decoder Cells at Injected SNR $-31.0$ dB}
+\label{tab:physical}
+\centering\footnotesize
+\begin{tabular}{lrrrrr}
+\toprule
+Noise family & Carrier (MHz) & Target $\sigma_y(1\,\mathrm{s})$ & Median residual RMS (Hz) & Correct/100 & $P_{\mathrm{decode}}$ \\
+\midrule
+White FM & 10 & $1\times10^{-8}$ & 0.09746 & 53 & 0.53 \\
+Flicker FM & 10 & $1\times10^{-8}$ & 0.15570 & 22 & 0.22 \\
+Random-walk FM & 10 & $1\times10^{-8}$ & 0.34478 & 1 & 0.01 \\
+Random-walk FM & 10 & $3\times10^{-9}$ & 0.11282 & 43 & 0.43 \\
+Random-walk FM & 14 & $3\times10^{-9}$ & 0.14218 & 27 & 0.27 \\
+Random-walk FM & 28 & $3\times10^{-9}$ & 0.27776 & 2 & 0.02 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.93\textwidth]{fig7_physical_oscillator_decode.pdf}
+\caption{Observed production-\texttt{wsprd} $P_{\mathrm{decode}}$ in the saved 54-cell synthetic physical-parameter sweep. Rows are carrier-scaling frequencies (MHz); columns are injected SNRs (dB). Points denote 100-trial cell proportions; bars are Wilson 95\% intervals.}
+\label{fig:physical}
+\end{figure*}
+
+\section{Cross-Trajectory Severity Descriptors}
+\subsection{Peak residual frequency}
+The AMP candidate uses the largest absolute value of projected residual frequency. It is easy to compute, but equal peaks can arise from different time histories. Evaluation used identical held-out trials for the scalar candidates within each comparison (Table~\ref{tab:descriptors}).
+
+\subsection{Maximum residual phase excursion}
+Residual phase is the continuous accumulation of projected frequency:
+\begin{equation}
+\phi[n+1]=\phi[n]+\frac{2\pi}{375}r_f[n],
+\label{eq:phase}
+\end{equation}
+with each symbol offset held across its 256 samples. PHASE augments AMP with $\max_n|\phi[n]|$. In five-family leave-one-family-out tests over smooth deterministic quadratic-positive, quadratic-negative, and three thermal shapes (3,000 held-out trial predictions), PHASE achieved Brier 0.167685 and log loss 0.505995, compared with AMP 0.173669 and 0.522790. The paired AMP-minus-PHASE Brier difference was $+0.005984$, with a cluster-bootstrap 95\% interval [$+0.003534,+0.008470$].
+
+\subsection{Residual-frequency RMS}
+RMS uses
+\begin{equation}
+R_f=\left(\frac{1}{162}\sum_{i=0}^{161}r_i^2\right)^{1/2}
+\label{eq:rms}
+\end{equation}
+after projection. The separately evaluated SNR-plus-RMS model scored Brier 0.168073 and log loss 0.507057 in smooth-family holdouts. None of AMP, PHASE, or RMS describes the entire temporal trajectory; differences among amplitude-matched thermal and quadratic cells illustrate this limitation.
+
+\begin{table}[t]
+\caption{Held-Out Descriptor-Model Scores}
+\label{tab:descriptors}
+\centering\footnotesize
+\begin{tabular}{llrrr}
+\toprule
+Evaluation & Metric & AMP & PHASE & RMS \\
+\midrule
+Smooth LOFO & Brier & .173669 & .167685 & .168073 \\
+3,000 trials & Log loss & .522790 & .505995 & .507057 \\
+Random walk & Brier & .147956 & .161398 & .145333 \\
+2,400 trials & Log loss & .466755 & .501690 & .457456 \\
+\bottomrule
+\end{tabular}
+\vspace{2pt}
+\parbox{\columnwidth}{\footnotesize AMP: peak projected frequency. PHASE: AMP plus maximum projected phase. RMS: SNR plus projected frequency RMS.}
+\end{table}
+
+\subsection{Held-out and external validation}
+On the independent 2,400-trial symbol-rate random-walk set, frozen AMP/PHASE/RMS models scored Brier 0.147956/0.161398/0.145333 and log loss 0.466755/0.501690/0.457456 (Table~\ref{tab:descriptors}). Thus PHASE's improvement over AMP in the tested smooth-shape holdouts did not persist on that random-walk set, while RMS had the lowest score among these three tested scalars there. On a further 5,400 new synthetic Allan-targeted physical-sweep trials, the frozen SNR-plus-RMS model scored Brier 0.143960 and log loss 0.441462; those outcomes were not used to refit it. The external score is tied to this sweep's outcome prevalence and support.
+
+\subsection{Remaining morphology dependence}
+The six-family RMS support audit found that 1,467 of 2,400 held-out random-walk rows were outside the training families' RMS support. A diagnostic all-data fit with family terms had AIC 5178.173 versus 5177.862 without them, BIC 5230.926 versus 5197.644, and Brier 0.156226 versus 0.156575. That fit is descriptive rather than a deployable predictor. Family-specific residual errors and out-of-support predictions remain, so a single RMS coordinate is not sufficient to establish trajectory-independent calibration.
+
+\section{Engineering Implications}
+For this production decoder and generated-signal test bed, frequency-stability assessment can be organized as fractional frequency $y(t)$, absolute deviation $f_cy(t)$, $[1,x]$ projection, residual descriptor, and observed decode probability. This distinguishes a constant or linear component the decoder searches from residual motion it does not explicitly represent. The saved carrier-scaling audit records higher projected hertz severity at higher $f_c$ for comparable fractional targets, while the physical-sweep cells show that FM family and injected SNR also change observed probabilities. A specification expressed solely as total drift, peak offset, or Allan deviation at one averaging time would not reproduce the tested cell outcomes without process shape, carrier scaling, and decoder configuration. No procurement threshold or field-link performance guarantee is derived here.
+
+\section{Limitations}
+Every decode probability belongs to the unmodified production WSJT-X 3.0.2 \texttt{wsprd}, the fixed generated message/waveform, the repository's C2 path and AWGN convention, and a finite tested grid. The decoder's acquisition and candidate-search behavior is part of the outcome; an ideal receiver was not evaluated. D50 and A50 are interpolated within observed brackets and inherit Monte Carlo uncertainty. Strict noiseless controls have only one trial per drift value, and finite 100- or 200-trial cells should not be treated as exact probabilities.
+
+No RF hardware, oscillator trace, field propagation, Doppler, or nonstationary multipath was measured or simulated in these reported sweeps. Thermal time constants and uncalibrated random-walk steps are shape probes. Allan-targeted synthetic processes have finite sample cadence and spectral support and are scaled to an ensemble 1-s statistic; qualitative slope agreement does not make them traceable frequency standards or measurements of a particular oscillator. The physical sweep's carrier labels change $\Delta f=f_cy$, not the C2 dial frequency. Matched seeds reduce comparison noise but do not turn a shared noise realization into independent replications. Smooth-family holdouts reuse a small set of deterministic shapes, and descriptor models exhibit support and morphology dependence.
+
+\section{Conclusion}
+Saved decoder trials show separate SNR-dependent responses to exact in-model linear drift and projected beyond-linear frequency residuals. The controlled quadratic grid provided bracketed A50 estimates, while the balanced factorial yielded a nonzero fitted drift $\times$ residual term on the log-odds scale. Thermal, random-walk, and synthetic Allan-targeted FM tests broadened the tested trajectory set without establishing measured-hardware behavior. Across these saved comparisons, no tested scalar residual descriptor was sufficient to remove all family and support effects. The reported boundaries and scores are empirical properties of the specified production decoder, generated waveform, and condition grids.
+
+\section*{Data and Code Availability}
+The repository contains the trial-level CSV files, derived analyses, figure-generation scripts, decoder provenance, and deterministic seed rules used for every numerical result. The staged figures in this source tree are presentation copies; the validated result files remain unchanged.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

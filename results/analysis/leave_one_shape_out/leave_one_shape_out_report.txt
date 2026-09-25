@@ -1,0 +1,25 @@
+CV_BY_FAMILY
+ trajectory_family  training_rows  test_rows  brier_amp  log_loss_amp  calibration_intercept_amp  calibration_slope_amp  brier_phase  log_loss_phase  calibration_intercept_phase  calibration_slope_phase  brier_rms  log_loss_rms  calibration_intercept_rms  calibration_slope_rms
+quadratic_positive           2400        600   0.158053      0.481594                  -0.420290               1.255159     0.151601        0.463234                     0.066376                 1.137543   0.151618      0.463215                   0.080318               1.135319
+quadratic_negative           2400        600   0.172389      0.517677                  -0.291089               0.996374     0.169421        0.512154                     0.140716                 0.893548   0.169577      0.512675                   0.155432               0.891113
+     thermal_tau30           2400        600   0.215723      0.634509                   0.653953               0.671747     0.195193        0.575256                     0.304912                 0.742758   0.196459      0.578769                   0.339640               0.735856
+     thermal_tau60           2400        600   0.165967      0.502634                   0.004335               1.063484     0.167003        0.505090                    -0.202175                 1.075281   0.167450      0.506181                  -0.235397               1.082282
+    thermal_tau120           2400        600   0.156214      0.477535                  -0.127814               1.240523     0.155210        0.474241                     0.008461                 1.175263   0.155263      0.474447                  -0.016149               1.181288
+CV_OVERALL
+model  test_rows  brier_score  log_loss
+  AMP       3000     0.173669  0.522790
+PHASE       3000     0.167685  0.505995
+  RMS       3000     0.168073  0.507057
+PAIRED_BRIER_DIFFERENCE
+mean_loss_amp_minus_phase=0.00598374348424
+BOOTSTRAP_RESULT
+B=2000 rng_seed=2026100300 clusters=1500
+ci95_low=0.00353436529777 ci95_high=0.00846959972129 fraction_positive=1
+INTEGRITY_CHECK
+input_rows=3000 predicted_once=3000 family_holdouts=5 clusters=1500 input_hashes_unchanged=True
+OUTPUT_PATHS
+/mnt/d/Research/WSPR-hardware/results/analysis/leave_one_shape_out/leave_one_shape_out_predictions.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/leave_one_shape_out/leave_one_shape_out_by_family.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/leave_one_shape_out/leave_one_shape_out_overall.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/leave_one_shape_out/leave_one_shape_out_bootstrap.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/leave_one_shape_out/leave_one_shape_out_report.txt

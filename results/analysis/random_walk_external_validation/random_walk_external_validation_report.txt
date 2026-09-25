@@ -1,0 +1,68 @@
+EXPERIMENT_SPEC
+sigma_step_grid_hz=[0.01, 0.02, 0.04, 0.08] snr_grid_db=[-30.0, -30.5, -31.0] n_per_condition=200
+trajectory_seed=2026100500+sigma_index*100000+trial_index noise_seed=2026100600+snr_index*10000+trial_index
+residual_projection=least_squares([1,x],symbol_rate_random_walk); waveform=validated_WSPR; noise=calibrated_AWGN; decoder=production_wsprd
+TOTAL_TRIALS
+2400
+RANDOM_WALK_SUMMARY
+snr_db,sigma_step_hz,n,successes,p_decode,Wilson95_low,Wilson95_high,mean_runtime_seconds
+-30.0,0.01,200,187,0.935,0.8919809207009312,0.961623645350847,0.20194147990498096
+-30.0,0.02,200,189,0.945,0.9042130012276914,0.9690146582965411,0.20153291012997215
+-30.0,0.04,200,163,0.815,0.7554293723884824,0.8626980719938395,0.2405781958550142
+-30.0,0.08,200,69,0.345,0.2825979437674894,0.4132441074094632,0.36816889895498206
+-30.5,0.01,200,177,0.885,0.8333528310151243,0.9221362676743804,0.25429238228007306
+-30.5,0.02,200,159,0.795,0.7337430194757748,0.8451382379616379,0.2892801862199758
+-30.5,0.04,200,135,0.675,0.6073198511602996,0.7360842846076571,0.3311153272950105
+-30.5,0.08,200,35,0.175,0.12860515066273331,0.23364431148248993,0.412585604965052
+-31.0,0.01,200,149,0.745,0.6803707417954529,0.8003950482796865,0.329988765889957
+-31.0,0.02,200,124,0.62,0.5510671801561923,0.6844099415132637,0.3590591851700901
+-31.0,0.04,200,71,0.355,0.2919862754043116,0.42347886924509565,0.4190360534299816
+-31.0,0.08,200,7,0.035,0.017055542008567192,0.07047061152229073,0.4323785537599542
+DESCRIPTOR_RANGE
+descriptor,min,max
+max_abs_frequency_hz,0.0418923804645169,1.5132728509494462
+frequency_rms_hz,0.0160085367412613,0.6816411742033401
+frequency_peak_to_peak_hz,0.078249310067275,2.6965716384865237
+max_abs_phase_rad,1.234744019286106,105.84767149280856
+phase_rms_rad,0.668995993366503,73.38229287557775
+phase_peak_to_peak_rad,2.383672445734216,207.57493039844744
+final_phase_rad,-1.2185639650108548e-11,1.279721294211722e-11
+fitted_constant_hz,-1.9539689397107491,1.637468097183213
+fitted_linear_coefficient,-1.7346087482325614,1.809293340075692
+ORTHOGONALITY_CHECK
+max_abs_dot_with_constant=1.55431223448e-13 max_abs_dot_with_x=3.41850907818e-14 tolerance=1e-10
+EXTERNAL_MODEL_PERFORMANCE
+model,n,brier_score,log_loss
+AMP,2400,0.14795608611893352,0.4667551400723716
+PHASE,2400,0.1613982310051999,0.5016904654563159
+RMS,2400,0.14533313567565176,0.4574562663598986
+PER_SIGMA_PERFORMANCE
+sigma_step_hz,model,n,brier_score,log_loss
+0.01,AMP,600,0.1211419469587822,0.41002143856920426
+0.02,AMP,600,0.14812623563254287,0.4621236044071461
+0.04,AMP,600,0.19893026137606426,0.5858409062790548
+0.08,AMP,600,0.12362590050834477,0.4090346110340812
+0.01,PHASE,600,0.12219416620421895,0.4201330290421177
+0.02,PHASE,600,0.14989532177179876,0.47011074280356296
+0.04,PHASE,600,0.20614450823668942,0.6111740564101613
+0.08,PHASE,600,0.16735892780809256,0.5053440335694216
+0.01,RMS,600,0.12137315795405418,0.41327144551725015
+0.02,RMS,600,0.14749246965629495,0.4596057964633337
+0.04,RMS,600,0.19178841684254408,0.5686408037220021
+0.08,RMS,600,0.12067849824971383,0.38830701973700865
+PAIRED_BRIER_DIFFERENCE
+mean_brier_amp_minus_phase=-0.0134421448863
+BOOTSTRAP_RESULT
+B=2000 rng_seed=2026100700 trajectory_clusters=800 ci95_low=-0.0197235064066 ci95_high=-0.00714182417654 fraction_positive=0
+CSV_INTEGRITY_CHECK
+trial_rows=2400 conditions=12 rows_per_condition=200 unique_trajectory_seeds_per_condition=200 unique_noise_seeds_per_condition=200 matched_trajectory_descriptors_across_SNR=True matched_noise_seeds_across_sigma=True descriptors_finite=True deterministic_sources_unchanged=True
+OUTPUT_PATHS
+/mnt/d/Research/WSPR-hardware/results/csv/random_walk_decoder/random_walk_decoder_trials.csv
+/mnt/d/Research/WSPR-hardware/results/csv/random_walk_decoder/random_walk_decoder_summary.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/random_walk_external_validation/random_walk_trajectory_manifest.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/random_walk_external_validation/random_walk_predictions.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/random_walk_external_validation/random_walk_model_performance.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/random_walk_external_validation/random_walk_per_sigma_performance.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/random_walk_external_validation/random_walk_bootstrap.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/random_walk_external_validation/random_walk_calibration_bins.csv
+/mnt/d/Research/WSPR-hardware/results/analysis/random_walk_external_validation/random_walk_external_validation_report.txt
