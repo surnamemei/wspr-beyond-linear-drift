@@ -6,7 +6,7 @@ message: >-
 type: software
 title: WSPR-2 robustness under nonstationary frequency instability
 authors:
-  - given-names: Tom
+  - given-names: Jinghang
     family-names: Mei
 repository-code: https://github.com/surnamemei/wspr-beyond-linear-drift
 license: MIT
