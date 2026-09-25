@@ -1,0 +1,267 @@
+#!/usr/bin/env python3
+"""Run production-wsprd frequency-error control and model-mismatch trials."""
+
+from __future__ import annotations
+
+import argparse
+from concurrent.futures import ProcessPoolExecutor, as_completed
+import csv
+from dataclasses import replace
+import json
+import math
+import os
+from pathlib import Path
+import platform
+import random
+import re
+import subprocess
+import tempfile
+import time
+
+from analysis.metrics import wilson_interval
+from impairments.frequency import (
+    apply_frequency_error,
+    constant_cfo_trajectory,
+    embed_active_trajectory,
+    linear_drift_trajectory,
+    quadratic_residual_trajectory,
+    wsprd_linear_drift_trajectory,
+)
+from impairments.noise import add_awgn
+from wspr.encoder import encode_type1
+from wspr.waveform import generate_complex_baseband, write_c2
+
+
+MESSAGE = "K1ABC FN42 33"
+WSPRD_VERSION = "official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9"
+TONE_SPACING_HZ = 1.46484375
+
+_CLEAN_WAVEFORM = None
+_ROOT = None
+_IMPAIRED_CACHE: dict[tuple[str, float], object] = {}
+
+
+def initialize_worker(root: str) -> None:
+    global _CLEAN_WAVEFORM, _ROOT, _IMPAIRED_CACHE
+    _ROOT = Path(root)
+    _CLEAN_WAVEFORM = generate_complex_baseband(encode_type1(MESSAGE).channel_symbols)
+    _IMPAIRED_CACHE = {}
+
+
+def parse_decoder_output(stdout: str) -> tuple[bool, str, str, str, str]:
+    messages: list[str] = []
+    exact_row = None
+    for line in stdout.splitlines():
+        fields = line.split()
+        if len(fields) == 8 and re.fullmatch(r"[0-9]{4}", fields[0]):
+            messages.append(" ".join(fields[5:8]))
+            if fields[5:8] == MESSAGE.split():
+                exact_row = fields
+    if exact_row is None:
+        return False, " | ".join(messages), "", "", ""
+    return True, MESSAGE, exact_row[1], exact_row[3], exact_row[4]
+
+
+def active_trajectory(kind: str, value: float, count: int) -> tuple[float, ...]:
+    if kind == "cfo":
+        return constant_cfo_trajectory(count, value)
+    if kind == "linear":
+        if count != 162 * 256:
+            raise ValueError("wsprd linear control requires the 162x256 active frame")
+        return wsprd_linear_drift_trajectory(162, 256, value)
+    if kind == "quadratic":
+        return quadratic_residual_trajectory(count, value)
+    raise ValueError(f"unknown impairment kind: {kind}")
+
+
+def impaired_waveform(kind: str, value: float):
+    key = (kind, value)
+    if key in _IMPAIRED_CACHE:
+        return _IMPAIRED_CACHE[key]
+    if _CLEAN_WAVEFORM is None:
+        raise RuntimeError("worker not initialized")
+    active = active_trajectory(kind, value, _CLEAN_WAVEFORM.signal_sample_count)
+    full = embed_active_trajectory(
+        len(_CLEAN_WAVEFORM.samples), _CLEAN_WAVEFORM.frame_start_sample, active
+    )
+    samples = apply_frequency_error(
+        _CLEAN_WAVEFORM.samples, full, _CLEAN_WAVEFORM.sample_rate_hz
+    )
+    result = replace(_CLEAN_WAVEFORM, samples=samples)
+    _IMPAIRED_CACHE[key] = result
+    return result
+
+
+def quadratic_coefficient_hz(value: float, count: int) -> float:
+    """Coefficient of x^2 before LS removal for x spanning [-1, 1]."""
+    if value == 0:
+        return 0.0
+    center = (count - 1) / 2.0
+    x = [(index - center) / center for index in range(count)]
+    raw = [item * item for item in x]
+    mean = sum(raw) / count
+    peak = max(abs(item - mean) for item in raw)
+    return value / peak
+
+
+def run_trial(task: tuple[int, str, float, float, int, int]) -> dict[str, object]:
+    condition_index, kind, value, snr_db, trial_in_condition, seed = task
+    if _ROOT is None or _CLEAN_WAVEFORM is None:
+        raise RuntimeError("worker not initialized")
+    start = time.perf_counter()
+    clean = impaired_waveform(kind, value)
+    noisy_samples = add_awgn(clean.samples, snr_db, random.Random(seed), signal_power=1.0)
+    waveform = replace(clean, samples=noisy_samples)
+    with tempfile.TemporaryDirectory(prefix=f"wspr-{kind}-") as directory:
+        work = Path(directory)
+        filename = "260925_0000.c2"
+        write_c2(work / filename, waveform)
+        process = subprocess.run(
+            ["bash", str(_ROOT / "scripts/wsprd.sh"), "-H", "-a", str(work), filename],
+            cwd=work,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+    success, decoded_message, reported_snr, reported_frequency, reported_drift = (
+        parse_decoder_output(process.stdout)
+    )
+    active_count = _CLEAN_WAVEFORM.signal_sample_count
+    cfo = value if kind == "cfo" else ""
+    linear = value if kind == "linear" else ""
+    a_res = value if kind == "quadratic" else ""
+    quadratic = quadratic_coefficient_hz(value, active_count) if kind == "quadratic" else ""
+    return {
+        "experiment": f"frequency_{kind}",
+        "trial_id": condition_index * 1_000_000 + trial_in_condition,
+        "seed": seed,
+        "message": MESSAGE,
+        "snr_db": snr_db,
+        "impairment_type": kind,
+        "cfo_hz": cfo,
+        "linear_drift_parameter": linear,
+        "quadratic_parameter": quadratic,
+        "A_res_hz": a_res,
+        "decoded_success": int(success),
+        "decoded_message": decoded_message,
+        "reported_snr": reported_snr,
+        "reported_frequency": reported_frequency,
+        "reported_drift": reported_drift,
+        "decoder_exit_status": process.returncode,
+        "runtime_seconds": time.perf_counter() - start,
+        "wsprd_version": WSPRD_VERSION,
+        "decoder_stdout": process.stdout.strip(),
+        "decoder_stderr": process.stderr.strip(),
+    }
+
+
+def parse_arguments() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--kind", choices=("cfo", "linear", "quadratic"), required=True)
+    parser.add_argument("--values", nargs="+", type=float, required=True)
+    parser.add_argument("--snrs", nargs="+", type=float, required=True)
+    parser.add_argument("--trials", type=int, required=True)
+    parser.add_argument("--prefix", required=True)
+    parser.add_argument("--workers", type=int, default=min(4, os.cpu_count() or 1))
+    parser.add_argument("--base-seed", type=int, required=True)
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_arguments()
+    if args.trials <= 0 or args.workers <= 0:
+        raise ValueError("trials and workers must be positive")
+    root = Path(__file__).resolve().parents[1]
+    output_dir = root / "results/csv/stages"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    conditions = [
+        (snr, value)
+        for snr in sorted(set(args.snrs), reverse=True)
+        for value in sorted(set(args.values))
+    ]
+    tasks = []
+    for condition_index, (snr, value) in enumerate(conditions):
+        for trial in range(args.trials):
+            seed = args.base_seed + condition_index * 100_000 + trial
+            tasks.append((condition_index, args.kind, value, snr, trial, seed))
+
+    started = time.perf_counter()
+    rows = []
+    with ProcessPoolExecutor(
+        max_workers=args.workers, initializer=initialize_worker, initargs=(str(root),)
+    ) as executor:
+        futures = [executor.submit(run_trial, task) for task in tasks]
+        for completed, future in enumerate(as_completed(futures), 1):
+            rows.append(future.result())
+            if completed % 50 == 0 or completed == len(futures):
+                print(f"completed {completed}/{len(futures)}", flush=True)
+    rows.sort(key=lambda row: (float(row["snr_db"]), int(row["trial_id"])), reverse=True)
+
+    trial_path = output_dir / f"{args.prefix}_trials.csv"
+    with trial_path.open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+
+    summaries = []
+    for snr, value in conditions:
+        selected = [
+            row
+            for row in rows
+            if float(row["snr_db"]) == snr
+            and float(row[{"cfo": "cfo_hz", "linear": "linear_drift_parameter", "quadratic": "A_res_hz"}[args.kind]]) == value
+        ]
+        successes = sum(int(row["decoded_success"]) for row in selected)
+        low, high = wilson_interval(successes, len(selected))
+        summaries.append(
+            {
+                "impairment_type": args.kind,
+                "snr_db": snr,
+                "value_hz": value,
+                "n": len(selected),
+                "successes": successes,
+                "p_decode": successes / len(selected),
+                "ci_low": low,
+                "ci_high": high,
+                "mean_runtime_seconds": sum(float(row["runtime_seconds"]) for row in selected) / len(selected),
+            }
+        )
+    summary_path = output_dir / f"{args.prefix}_summary.csv"
+    with summary_path.open("w", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(summaries[0].keys()))
+        writer.writeheader()
+        writer.writerows(summaries)
+
+    metadata = {
+        "kind": args.kind,
+        "values_hz": args.values,
+        "snrs_db_2500hz": args.snrs,
+        "trials_per_condition": args.trials,
+        "total_trials": len(tasks),
+        "base_seed": args.base_seed,
+        "seed_policy": "base_seed + condition_index*100000 + zero-based trial index",
+        "workers": args.workers,
+        "python_version": platform.python_version(),
+        "wsprd_version": WSPRD_VERSION,
+        "decoder_options": ["-H"],
+        "wall_runtime_seconds": time.perf_counter() - started,
+        "trial_csv": str(trial_path),
+        "summary_csv": str(summary_path),
+    }
+    (output_dir / f"{args.prefix}_metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")
+    print("kind SNR value N decoded P_decode Wilson95")
+    for row in summaries:
+        print(
+            f"{args.kind:9s} {float(row['snr_db']):4.0f} {float(row['value_hz']):7.2f} "
+            f"{int(row['n']):4d} {int(row['successes']):4d} {float(row['p_decode']):.3f} "
+            f"[{float(row['ci_low']):.3f},{float(row['ci_high']):.3f}]"
+        )
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except (OSError, ValueError, RuntimeError) as error:
+        print(f"frequency experiment failed: {error}")
+        raise SystemExit(1)

@@ -1,0 +1,131 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# =========================
+# IDE / editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# =========================
+# Local runtime / tool caches
+# =========================
+.cache/
+.cache/runtime/
+.cache/wsjtx/
+tmp/
+temp/
+scratch/
+
+# =========================
+# Build artifacts
+# =========================
+build/
+dist/
+*.egg-info/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+
+# =========================
+# WSPR / WSJT-X temporary signal files
+# =========================
+*.c2
+*.wav
+*.iq
+*.raw
+*.bin
+
+# Keep deliberately curated reference assets if needed
+!results/reference/**/*.c2
+!results/reference/**/*.wav
+
+# =========================
+# Temporary experiment outputs
+# =========================
+results/tmp/
+results/debug/
+results/smoke/
+results/intermediate/
+results/work/
+results/cache/
+
+# Decoder scratch directories
+**/wsprd_tmp/
+**/decoder_tmp/
+**/trial_tmp/
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Large local datasets / archives
+# =========================
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# =========================
+# Local environment/config
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# OS / WSL artifacts
+# =========================
+*.Zone.Identifier
+lost+found/
+
+# =========================
+# Optional local profiling
+# =========================
+profile/
+profiles/
+*.prof
+*.pstats
+
+# =========================
+# Preserve reproducible research outputs
+# =========================
+# Intentionally DO NOT ignore:
+# results/csv/
+# results/analysis/
+# results/figures/
+# docs/
+# experiments/
+# scripts/
+# src/
+# tests/

@@ -1,0 +1,34 @@
+{
+  "release": "WSJT-X 3.0.2",
+  "message": "K1ABC FN42 33",
+  "simulator_command": [
+    "/mnt/d/Research/WSPR-hardware/.cache/wsjtx-3.0.2/lib/wsprd/wsprsim",
+    "-cd",
+    "-s",
+    "50",
+    "-o",
+    "260924_0000.c2",
+    "K1ABC FN42 33"
+  ],
+  "simulator_exit_status": 1,
+  "decoder_command": [
+    "bash",
+    "/mnt/d/Research/WSPR-hardware/scripts/wsprd.sh",
+    "-a",
+    "/mnt/d/Research/WSPR-hardware/results/reference",
+    "260924_0000.c2"
+  ],
+  "decoder_exit_status": 0,
+  "decoded_message": "K1ABC FN42 33",
+  "decoded_snr_db": 39.0,
+  "decoded_dt_s": -0.0,
+  "decoded_frequency_mhz": 10.1402,
+  "decoded_drift_hz": 0,
+  "source_archive_sha256": "574aee4a36c58c4dfeda4f2d659e74542212d4d9c25bfc040feba47c9f2b15d7",
+  "simulator_binary_sha256": "d850595e4da06792df483eb6f8b8645455e7294d5081ba4a015ee1010752e9f5",
+  "decoder_binary_sha256": "9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9",
+  "c2_sha256": "2f429d1f7e43e2eba047d2fd4fe100998ba155e8948cdf756a44721ad9e40af2",
+  "c2_bytes": 360026,
+  "c2_mode": 2,
+  "c2_dial_frequency_mhz": 10.1387
+}

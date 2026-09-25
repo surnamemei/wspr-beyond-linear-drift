@@ -1,0 +1,2 @@
+impairment_type,snr_db,value_hz,n,successes,p_decode,ci_low,ci_high,mean_runtime_seconds
+linear,-inf,0.0,1,0,0.0,0.0,0.7934506856227626,0.07796656400023494

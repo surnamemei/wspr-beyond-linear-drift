@@ -1,0 +1,4 @@
+experiment,trial_id,seed,message,snr_db_2500hz,decoded_success,decoded_message,reported_snr,reported_frequency,reported_drift,decoder_exit_status,runtime_seconds,signal_file_or_identifier,wsprd_version,decoder_stdout,decoder_stderr
+awgn_baseline,0,2026092400,K1ABC FN42 33,-20.0,1,K1ABC FN42 33,-20,10.140200,0,0,0.06477070500000082,"generated:snr=-20,seed=2026092400",official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0002 -20  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+awgn_baseline,1000000,2026192400,K1ABC FN42 33,-35.0,0,,,,,0,0.483680220999986,"generated:snr=-35,seed=2026192400",official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,

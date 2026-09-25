@@ -1,0 +1,344 @@
+experiment,trial_id,seed,message,snr_db,no_noise,impairment_type,cfo_hz,linear_drift_parameter,quadratic_parameter,A_res_hz,decoded_success,decoded_message,reported_snr,reported_frequency,reported_drift,decoder_exit_status,runtime_seconds,wsprd_version,decoder_stdout,decoder_stderr
+frequency_linear,199,2026092719,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.23944837099952565,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,198,2026092718,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2527707459994417,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,197,2026092717,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.3488951460003591,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,196,2026092716,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.24561779199939338,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,195,2026092715,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.37802971999917645,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,194,2026092714,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,9T2QXO QA20 33,,,,0,0.13457542000105605,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  9T2QXO QA20 33 
+<DecodeFinished>",
+frequency_linear,193,2026092713,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.14857323700016423,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,192,2026092712,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.28639675799968245,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,191,2026092711,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.36870856899986393,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,190,2026092710,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5075360009996075,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,189,2026092709,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.25467616400055704,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,188,2026092708,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.0862266570002248,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,187,2026092707,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.281884687999991,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,186,2026092706,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5194106489998376,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,185,2026092705,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.041876373999912175,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,184,2026092704,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5234815740004706,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,183,2026092703,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.31521287899886374,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,182,2026092702,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.3266536980008823,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,181,2026092701,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.4266794579998532,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,180,2026092700,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.3570388420012023,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,179,2026092699,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.03744606500004011,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,178,2026092698,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5168739310011006,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,177,2026092697,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5130425049992482,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,176,2026092696,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.26622705699992366,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,175,2026092695,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.23180936599965207,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,174,2026092694,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.25104568200003996,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,173,2026092693,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2448161499996786,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,172,2026092692,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5050690579992079,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,171,2026092691,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.17080676900150138,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,170,2026092690,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5136040919987863,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,169,2026092689,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2806400069985102,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,168,2026092688,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.045417977999022696,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,167,2026092687,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.22724311799902353,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,166,2026092686,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.4993066650004039,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,165,2026092685,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5134685309985798,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,164,2026092684,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.1614415280000685,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,163,2026092683,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.3566107530004956,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,162,2026092682,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.23618528299994068,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,161,2026092681,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.23932467799932056,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,160,2026092680,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.23155358500116563,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,159,2026092679,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.256846450998637,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,158,2026092678,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.37853910800004087,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,157,2026092677,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.4403246680012671,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,156,2026092676,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.25035664399911184,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,155,2026092675,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.3896898430011788,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,154,2026092674,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.23496420000083162,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,153,2026092673,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.235940547001519,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,152,2026092672,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.26531280699964555,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,151,2026092671,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.04835454100066272,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,150,2026092670,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.23668112099949212,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,149,2026092669,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.23467961399910564,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,148,2026092668,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2518373610000708,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,147,2026092667,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.23012058899985277,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,146,2026092666,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.24238312600027712,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,145,2026092665,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.23496566699941468,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,144,2026092664,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.36382696600048803,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,143,2026092663,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.2524820689995977,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,142,2026092662,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.23114048000024923,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,141,2026092661,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2368275499993615,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,140,2026092660,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-33,10.140200,0,0,0.3759494469995843,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -33 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,139,2026092659,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.4302276170001278,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,138,2026092658,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.07562009899993427,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,137,2026092657,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.17287829300039448,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,136,2026092656,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.23570460100017954,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,135,2026092655,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.25232625900025596,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,134,2026092654,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5014812050012551,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,133,2026092653,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2562981999999465,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,132,2026092652,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.03705337099927419,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,131,2026092651,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2517688179996185,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,130,2026092650,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2403706670011161,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,129,2026092649,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2419216869984666,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,128,2026092648,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2415883980011131,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,127,2026092647,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.3602992960004485,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,126,2026092646,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.17712749999918742,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,125,2026092645,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.3431500490005419,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,124,2026092644,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2471444809998502,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,123,2026092643,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.04765114499969059,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,122,2026092642,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.2292988619992684,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,121,2026092641,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5056870430016716,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,120,2026092640,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.33379910300027404,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,119,2026092639,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.23987861600107863,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,118,2026092638,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,K1ASW OG76 33,,,,0,0.18884001699916553,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ASW OG76 33 
+<DecodeFinished>",
+frequency_linear,117,2026092637,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.25001636299930396,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,116,2026092636,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.23339701899931242,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,115,2026092635,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.4229872779997095,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,114,2026092634,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.13946695199956594,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,113,2026092633,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.1522168960000272,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,112,2026092632,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.335974087998693,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,111,2026092631,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.1969940660001157,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,110,2026092630,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.2654027019998466,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,109,2026092629,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.25481477599896607,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,108,2026092628,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5149304200003826,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,107,2026092627,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.24803716499991424,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,106,2026092626,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.03916577900054108,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,105,2026092625,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.25900401399849216,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,104,2026092624,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5561212040011014,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,103,2026092623,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.3959447540000838,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,102,2026092622,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.1744867930010514,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,101,2026092621,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.2808255019990611,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,100,2026092620,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.24067613300030644,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,99,2026092619,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.27583809699899575,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,98,2026092618,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.16088408699943102,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,97,2026092617,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2599977129993931,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,96,2026092616,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.24749145100031456,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,95,2026092615,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2498805060004088,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,94,2026092614,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.525921668000592,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,93,2026092613,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2793112530016515,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,92,2026092612,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.21968170899890538,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,91,2026092611,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2365460040000471,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,90,2026092610,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.0730485679996491,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,89,2026092609,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5483838949985511,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,88,2026092608,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.4537306410002202,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,87,2026092607,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.2365826189998188,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,86,2026092606,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.41772546599895577,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,85,2026092605,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.23789676100022916,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,84,2026092604,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.235940185999425,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,83,2026092603,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.266039747000832,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,82,2026092602,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.2632323979996727,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,81,2026092601,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.4238294329989003,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,80,2026092600,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.3408238159991015,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,79,2026092599,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.03904876299930038,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,78,2026092598,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.0724500470005296,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,77,2026092597,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.23967648600046232,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,76,2026092596,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.376824551000027,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,75,2026092595,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5161481230006757,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,74,2026092594,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.24916562900034478,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,73,2026092593,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5049561430005269,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,72,2026092592,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.508406617998844,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,71,2026092591,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5176305180011695,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,70,2026092590,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.3829329290001624,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,69,2026092589,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.2284880859988334,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,68,2026092588,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.22167123699910007,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,67,2026092587,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.49428939200151945,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,66,2026092586,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5456852080005774,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,65,2026092585,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5511941660006414,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,64,2026092584,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5179752149997512,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,63,2026092583,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5179638509998767,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,62,2026092582,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.07142127199949755,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,61,2026092581,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.14470914399862522,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,60,2026092580,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.18394838600033836,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,59,2026092579,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.05603502800113347,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,58,2026092578,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.38780497399966407,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,57,2026092577,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.36678789000143297,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,56,2026092576,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5386218650000956,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,55,2026092575,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.7606368100005056,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,54,2026092574,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.24833170899910328,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,53,2026092573,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.26106076299947745,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,52,2026092572,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5405554460012354,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,51,2026092571,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.39653800099949876,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,50,2026092570,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5408213080008863,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,49,2026092569,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5106115939997835,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,48,2026092568,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5037512529997912,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,47,2026092567,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.18827126900032454,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,46,2026092566,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.14153220300067915,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,45,2026092565,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5301225459988927,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,44,2026092564,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.28741656400052307,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,43,2026092563,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5147486260011647,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,42,2026092562,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.23438251200059312,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,41,2026092561,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5198059620015556,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,40,2026092560,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.041353997999976855,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,39,2026092559,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.34539218500140123,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,38,2026092558,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5409825170008844,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,37,2026092557,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5520185919995129,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,36,2026092556,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5735705209990556,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,35,2026092555,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-29,10.140200,0,0,0.3519799850000709,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -29  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,34,2026092554,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.04091841499939619,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,33,2026092553,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5299363359990821,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,32,2026092552,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.24938128000030702,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,31,2026092551,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.2374487830002181,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,30,2026092550,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5195266120008455,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,29,2026092549,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.510600350000459,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,28,2026092548,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.25514205699982995,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,27,2026092547,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.24162700600027165,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,26,2026092546,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.25607486400076596,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,25,2026092545,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2627499390000594,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,24,2026092544,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.22398218200032716,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,23,2026092543,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.2500493560000905,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,22,2026092542,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.0536855940008536,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,21,2026092541,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5348109560000012,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,20,2026092540,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5659843560006266,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,19,2026092539,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.25499123000008694,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,18,2026092538,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.22663468000064313,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,17,2026092537,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-32,10.140200,0,0,0.33802205599931767,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -32  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,16,2026092536,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.35785027500060096,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,15,2026092535,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.24429285299993353,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,14,2026092534,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5336376180002844,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,13,2026092533,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.23501627299992833,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,12,2026092532,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.042280659999960335,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,11,2026092531,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.3348357479990227,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,10,2026092530,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.2532304850010405,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,9,2026092529,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5105442240001139,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,8,2026092528,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.26322098300079233,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,7,2026092527,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.42667170200002147,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.2  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,6,2026092526,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.14601875200060022,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,5,2026092525,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.355305897001017,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31 -0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,4,2026092524,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.23677514800147037,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,3,2026092523,K1ABC FN42 33,-31.0,False,linear,,0.0,,,0,,,,,0,0.5308161529992503,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,<DecodeFinished>,
+frequency_linear,2,2026092522,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.24351683699933346,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,1,2026092521,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-31,10.140200,0,0,0.26085921400044754,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -31  0.1  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",
+frequency_linear,0,2026092520,K1ABC FN42 33,-31.0,False,linear,,0.0,,,1,K1ABC FN42 33,-30,10.140200,0,0,0.1575768179991428,official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9,"0000 -30  0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>",

@@ -1,0 +1,2 @@
+0001  39 -0.0  10.140200  0  K1ABC FN42 33 
+<DecodeFinished>

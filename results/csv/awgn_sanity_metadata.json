@@ -1,0 +1,21 @@
+{
+  "experiment": "awgn_baseline",
+  "mode": "custom",
+  "message": "K1ABC FN42 33",
+  "snr_plan": {
+    "-20.0": 1,
+    "-35.0": 1
+  },
+  "base_seed": 2026092400,
+  "seed_policy": "base_seed + descending-condition-index*100000 + zero-based-trial-index",
+  "workers": 2,
+  "python_version": "3.12.3",
+  "wsprd_version": "official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9",
+  "git_commit": "uncommitted-no-HEAD",
+  "decoder_options": [
+    "-H"
+  ],
+  "trial_csv": "/mnt/d/Research/WSPR-hardware/results/csv/awgn_sanity_trials.csv",
+  "summary_csv": "/mnt/d/Research/WSPR-hardware/results/csv/awgn_sanity_summary.csv",
+  "wall_runtime_seconds": 0.5499352289998569
+}

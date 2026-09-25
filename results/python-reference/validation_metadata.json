@@ -1,0 +1,26 @@
+{
+  "phase": "1B",
+  "status": "PASS",
+  "transmitted_message": "K1ABC FN42 33",
+  "decoded_message": "K1ABC FN42 33",
+  "matching_official_symbols": 162,
+  "test_command": "PYTHONPATH=src python3 -m unittest discover -s tests -v",
+  "generator_command": "PYTHONPATH=src python3 scripts/generate_python_reference.py <repository-root>",
+  "decoder_command": [
+    "bash",
+    "/mnt/d/Research/WSPR-hardware/scripts/wsprd.sh",
+    "-H",
+    "-a",
+    "/mnt/d/Research/WSPR-hardware/results/python-reference",
+    "260924_0001.c2"
+  ],
+  "decoder_exit_status": 0,
+  "decoder_snr_db": 39.0,
+  "decoder_dt_s": -0.0,
+  "decoder_frequency_mhz": 10.1402,
+  "decoder_drift_hz": 0,
+  "decoder_stdout": "0001  39 -0.0  10.140200  0  K1ABC FN42 33 \n<DecodeFinished>\n",
+  "decoder_stderr": "",
+  "python_c2_sha256": "5560b47365945e237d3e6c388abdf1066b5a214a92565f4e87b13e4a445c47e6",
+  "python_c2_bytes": 360026
+}

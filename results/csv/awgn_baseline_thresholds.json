@@ -1,0 +1,9 @@
+{
+  "method": "piecewise linear interpolation between adjacent measured SNR points",
+  "snr_10_db": -32.728813559322035,
+  "snr_50_db": -31.51948051948052,
+  "snr_90_db": -30.285714285714285,
+  "successful_decodes_with_reported_snr": 1201,
+  "mean_reported_minus_injected_db": 0.11074104912572856,
+  "median_reported_minus_injected_db": 0.0
+}

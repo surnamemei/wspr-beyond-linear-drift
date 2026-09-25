@@ -1,0 +1,36 @@
+{
+  "kind": "cfo",
+  "values_hz": [
+    -150.0,
+    -100.0,
+    -50.0,
+    -20.0,
+    -10.0,
+    -5.0,
+    0.0,
+    5.0,
+    10.0,
+    20.0,
+    50.0,
+    100.0,
+    150.0
+  ],
+  "snrs_db_2500hz": [
+    -29.0,
+    -31.0,
+    -32.0
+  ],
+  "trials_per_condition": 20,
+  "total_trials": 780,
+  "base_seed": 2026100000,
+  "seed_policy": "base_seed + condition_index*100000 + zero-based trial index",
+  "workers": 2,
+  "python_version": "3.12.3",
+  "wsprd_version": "official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9",
+  "decoder_options": [
+    "-H"
+  ],
+  "wall_runtime_seconds": 83.12369042699993,
+  "trial_csv": "/mnt/d/Research/WSPR-hardware/results/csv/stages/cfo_quick_trials.csv",
+  "summary_csv": "/mnt/d/Research/WSPR-hardware/results/csv/stages/cfo_quick_summary.csv"
+}

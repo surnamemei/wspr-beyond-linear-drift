@@ -1,0 +1,5 @@
+Official channel-symbol match: 162/162
+Generated /mnt/d/Research/WSPR-hardware/results/python-reference/260924_0001.c2
+C2: 45000 complex samples at 375 Hz
+WSPR frame duration: 110.592 s
+Official comparison max complex-sample difference: 3.49e-08

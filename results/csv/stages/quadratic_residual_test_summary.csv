@@ -1,0 +1,3 @@
+impairment_type,snr_db,value_hz,n,successes,p_decode,ci_low,ci_high,mean_runtime_seconds
+quadratic,-29.0,0.0,50,50,1.0,0.9286524008666414,1.0,0.07121918334001748
+quadratic,-29.0,1.0,50,11,0.22,0.1275391597021442,0.3524154958125367,0.3697202295599527

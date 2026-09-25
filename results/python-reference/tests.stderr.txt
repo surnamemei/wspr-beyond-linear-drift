@@ -1,0 +1,22 @@
+test_invalid_type1_messages_are_rejected (test_encoder.Type1EncoderTests.test_invalid_type1_messages_are_rejected) ... ok
+test_official_packed_message_and_stage_lengths (test_encoder.Type1EncoderTests.test_official_packed_message_and_stage_lengths) ... ok
+test_official_reference_matches_all_162_symbols (test_encoder.Type1EncoderTests.test_official_reference_matches_all_162_symbols) ... ok
+test_type1_output_domain_and_canonicalization (test_encoder.Type1EncoderTests.test_type1_output_domain_and_canonicalization) ... ok
+test_invalid_counts_are_rejected (test_metrics.WilsonIntervalTests.test_invalid_counts_are_rejected) ... ok
+test_known_boundary_cases (test_metrics.WilsonIntervalTests.test_known_boundary_cases) ... ok
+test_symmetric_half_success_interval (test_metrics.WilsonIntervalTests.test_symmetric_half_success_interval) ... ok
+test_fixed_seed_is_deterministic_and_input_is_unchanged (test_noise.NoiseCalibrationTests.test_fixed_seed_is_deterministic_and_input_is_unchanged) ... ok
+test_measured_complex_noise_power_matches_target (test_noise.NoiseCalibrationTests.test_measured_complex_noise_power_matches_target) ... ok
+test_noise_is_zero_mean_and_circular (test_noise.NoiseCalibrationTests.test_noise_is_zero_mean_and_circular) ... ok
+test_ten_db_lower_snr_requires_ten_times_noise_power (test_noise.NoiseCalibrationTests.test_ten_db_lower_snr_requires_ten_times_noise_power) ... ok
+test_active_amplitude_is_constant_and_padding_is_zero (test_waveform.WaveformTests.test_active_amplitude_is_constant_and_padding_is_zero) ... ok
+test_c2_header_layout_and_size (test_waveform.WaveformTests.test_c2_header_layout_and_size) ... ok
+test_duration_and_sample_layout (test_waveform.WaveformTests.test_duration_and_sample_layout) ... ok
+test_output_is_deterministic (test_waveform.WaveformTests.test_output_is_deterministic) ... ok
+test_phase_is_continuous_at_every_symbol_boundary (test_waveform.WaveformTests.test_phase_is_continuous_at_every_symbol_boundary) ... ok
+test_tone_spacing_from_generated_sample_phase (test_waveform.WaveformTests.test_tone_spacing_from_generated_sample_phase) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.277s
+
+OK

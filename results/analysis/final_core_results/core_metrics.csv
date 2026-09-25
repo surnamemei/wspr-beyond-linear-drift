@@ -1,0 +1,24 @@
+metric,snr_db,value,lower,upper,units,source
+AWGN_SNR50,,-31.51948051948052,,,dB,results/csv/awgn_baseline_thresholds.json
+linear_D50_positive,-31.5,0.0,,,Hz,results/csv/linear_drift_boundary/linear_drift_boundary_summary.csv
+linear_D50_positive,-31.0,0.29850746268656714,,,Hz,results/csv/linear_drift_boundary/linear_drift_boundary_summary.csv
+linear_D50_positive,-30.5,0.4831081081081081,,,Hz,results/csv/linear_drift_boundary/linear_drift_boundary_summary.csv
+linear_D50_positive,-30.0,0.6981132075471699,,,Hz,results/csv/linear_drift_boundary/linear_drift_boundary_summary.csv
+linear_D50_negative,-31.5,0.0,,,Hz,results/csv/linear_drift_boundary/linear_drift_boundary_summary.csv
+linear_D50_negative,-31.0,0.3313253012048193,,,Hz,results/csv/linear_drift_boundary/linear_drift_boundary_summary.csv
+linear_D50_negative,-30.5,0.48863636363636365,,,Hz,results/csv/linear_drift_boundary/linear_drift_boundary_summary.csv
+linear_D50_negative,-30.0,0.7105263157894737,,,Hz,results/csv/linear_drift_boundary/linear_drift_boundary_summary.csv
+quadratic_A50,-31.0,0.20258620689655174,,,Hz,results/csv/quadratic_residual_pilot/quadratic_residual_pilot_summary.csv
+quadratic_A50,-30.5,0.311046511627907,,,Hz,results/csv/quadratic_residual_pilot/quadratic_residual_pilot_summary.csv
+quadratic_A50,-30.0,0.4407894736842105,,,Hz,results/csv/quadratic_residual_pilot/quadratic_residual_pilot_summary.csv
+quadratic_A50,-29.5,0.5775862068965517,,,Hz,results/csv/quadratic_residual_pilot/quadratic_residual_pilot_summary.csv
+balanced_bDA,,10.155477928422531,8.537717120356756,11.945402546799691,log-odds per Hz²,results/analysis/balanced_interaction_confirm/balanced_interaction_confirm_coefficients.csv
+balanced_bDA_cluster_robust_SE,,0.8389427157119115,,,log-odds per Hz²,results/analysis/balanced_interaction_confirm/balanced_interaction_confirm_coefficients.csv
+quadratic_dot_constant,,-1.709743457922741e-14,,,Hz,src/impairments/frequency.py:wspr_symbol_quadratic_residual_trajectory
+quadratic_dot_linear,,4.440892098500626e-16,,,Hz,src/impairments/frequency.py:wspr_symbol_quadratic_residual_trajectory
+M0_AIC,,3534.398151007343,,,unitless,results/analysis/balanced_interaction_confirm/balanced_interaction_confirm_model_comparison.csv
+M0_BIC,,3559.15290750512,,,unitless,results/analysis/balanced_interaction_confirm/balanced_interaction_confirm_model_comparison.csv
+M0_Brier_score,,0.1606885702520754,,,probability squared,results/analysis/balanced_interaction_confirm/balanced_interaction_confirm_model_comparison.csv
+M1_AIC,,3405.3192990090865,,,unitless,results/analysis/balanced_interaction_confirm/balanced_interaction_confirm_model_comparison.csv
+M1_BIC,,3436.262744631308,,,unitless,results/analysis/balanced_interaction_confirm/balanced_interaction_confirm_model_comparison.csv
+M1_Brier_score,,0.1537969841298277,,,probability squared,results/analysis/balanced_interaction_confirm/balanced_interaction_confirm_model_comparison.csv

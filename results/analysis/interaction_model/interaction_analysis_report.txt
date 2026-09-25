@@ -1,0 +1,61 @@
+DATA_AUDIT
+{"columns": ["snr_db", "drift_hz", "trial_index", "seed", "decoded_success", "decoded_message", "reported_snr", "reported_drift", "reported_frequency", "runtime_seconds", "decoder_exit_status", "wsprd_version", "decoder_stdout", "decoder_stderr"], "duplicate_rows": 0, "invalid_decoded_success": 0, "missing_values_by_column": {"decoded_message": 4600, "decoded_success": 0, "decoder_exit_status": 0, "decoder_stderr": 9000, "decoder_stdout": 0, "drift_hz": 0, "reported_drift": 4609, "reported_frequency": 4609, "reported_snr": 4609, "runtime_seconds": 0, "seed": 0, "snr_db": 0, "trial_index": 0, "wsprd_version": 0}, "row_count": 9000, "seed_max": 2026132799, "seed_min": 2026092600, "seeds_by_snr": {"-29.5": {"count": 200, "max": 2026092799, "min": 2026092600}, "-30": {"count": 200, "max": 2026102799, "min": 2026102600}, "-30.5": {"count": 200, "max": 2026112799, "min": 2026112600}, "-31": {"count": 200, "max": 2026122799, "min": 2026122600}, "-31.5": {"count": 200, "max": 2026132799, "min": 2026132600}}, "source_dataset": "linear_drift_boundary", "unique_A_res_hz": [0.0], "unique_drift_hz": [-1.0, -0.75, -0.5, -0.25, 0.0, 0.25, 0.5, 0.75, 1.0], "unique_seed_count": 1000, "unique_snr_db": [-31.5, -31.0, -30.5, -30.0, -29.5]}
+{"columns": ["snr_db", "A_res_hz", "trial_index", "seed", "decoded_success", "decoded_message", "reported_snr", "reported_drift", "reported_frequency", "runtime_seconds", "decoder_exit_status", "wsprd_version", "decoder_stdout", "decoder_stderr"], "duplicate_rows": 0, "invalid_decoded_success": 0, "missing_values_by_column": {"A_res_hz": 0, "decoded_message": 1443, "decoded_success": 0, "decoder_exit_status": 0, "decoder_stderr": 2800, "decoder_stdout": 0, "reported_drift": 1446, "reported_frequency": 1446, "reported_snr": 1446, "runtime_seconds": 0, "seed": 0, "snr_db": 0, "trial_index": 0, "wsprd_version": 0}, "row_count": 2800, "seed_max": 2026122799, "seed_min": 2026092700, "seeds_by_snr": {"-29.5": {"count": 100, "max": 2026092799, "min": 2026092700}, "-30": {"count": 100, "max": 2026102799, "min": 2026102700}, "-30.5": {"count": 100, "max": 2026112799, "min": 2026112700}, "-31": {"count": 100, "max": 2026122799, "min": 2026122700}}, "source_dataset": "quadratic_residual_pilot", "unique_A_res_hz": [0.0, 0.125, 0.25, 0.375, 0.5, 0.75, 1.0], "unique_drift_hz": [0.0], "unique_seed_count": 400, "unique_snr_db": [-31.0, -30.5, -30.0, -29.5]}
+{"columns": ["snr_db", "linear_drift_hz", "A_res_hz", "trial_index", "seed", "decoded_success", "decoded_message", "reported_snr", "reported_drift", "reported_frequency", "runtime_seconds", "decoder_exit_status", "wsprd_version", "decoder_stdout", "decoder_stderr"], "duplicate_rows": 0, "invalid_decoded_success": 0, "missing_values_by_column": {"A_res_hz": 0, "decoded_message": 1099, "decoded_success": 0, "decoder_exit_status": 0, "decoder_stderr": 2000, "decoder_stdout": 0, "linear_drift_hz": 0, "reported_drift": 1101, "reported_frequency": 1101, "reported_snr": 1101, "runtime_seconds": 0, "seed": 0, "snr_db": 0, "trial_index": 0, "wsprd_version": 0}, "row_count": 2000, "seed_max": 2026122899, "seed_min": 2026092800, "seeds_by_snr": {"-29.5": {"count": 100, "max": 2026092899, "min": 2026092800}, "-30": {"count": 100, "max": 2026102899, "min": 2026102800}, "-30.5": {"count": 100, "max": 2026112899, "min": 2026112800}, "-31": {"count": 100, "max": 2026122899, "min": 2026122800}}, "source_dataset": "linear_quadratic_interaction", "unique_A_res_hz": [0.0, 0.125, 0.25, 0.375, 0.5], "unique_drift_hz": [0.5], "unique_seed_count": 400, "unique_snr_db": [-31.0, -30.5, -30.0, -29.5]}
+combined_rows=13800 primary_rows=12000 primary_snr_values=[-29.5, -30.0, -30.5, -31.0] primary_clusters=1600
+MODEL_COEFFICIENTS
+model,term,coefficient,ordinary_se,ordinary_z,ordinary_p,cluster_robust_se,cluster_robust_z,cluster_robust_p,n_clusters
+M0,intercept,2.794000711466172,0.060726313685461164,46.009720365013685,0.0,0.06292290949918103,44.403552437487605,0.0,1600
+M0,snr_c,2.416883093804596,0.0525541903688975,45.98839934246138,0.0,0.0607300242710507,39.797169897669484,0.0,1600
+M0,abs_linear_drift_hz,-4.038794323543063,0.09282232466017336,-43.51102321913686,0.0,0.09538589525979571,-42.34163041131908,0.0,1600
+M0,A_res_hz,-6.57541691399993,0.14906751330737184,-44.11032805277738,0.0,0.16263499013817106,-40.43051810937857,0.0,1600
+M1,intercept,3.0223480384957475,0.06499413457382706,46.50185833404169,0.0,0.06681697182552782,45.23323874041598,0.0,1600
+M1,snr_c,2.4639802729951543,0.05338655725648525,46.15357122875416,0.0,0.06070723885369759,40.587915370904355,0.0,1600
+M1,abs_linear_drift_hz,-4.527605317892325,0.10193670665041976,-44.41584848742689,0.0,0.10245285984261501,-44.19208331370638,0.0,1600
+M1,A_res_hz,-8.023269740359375,0.1969687855294525,-40.73371178480291,0.0,0.21034180877720296,-38.143960950995414,0.0,1600
+M1,D_times_A,7.639311984508267,0.4988946085327517,15.312476530815742,6.311425164533134e-53,0.5700387504901631,13.401390656230651,5.934072046294789e-41,1600
+M2,intercept,2.9052642976459344,0.0656871391087409,44.22881460610506,0.0,0.06390222274684898,45.46421349309313,0.0,1600
+M2,snr_c,1.8537342174402147,0.11097835645546694,16.703565241426833,1.2346206906877189e-62,0.10622015770797913,17.45181194831689,3.3348393677317863e-68,1600
+M2,abs_linear_drift_hz,-4.468739842837615,0.10284641608124422,-43.450613187216014,0.0,0.10251678155571695,-43.59032516455753,0.0,1600
+M2,A_res_hz,-7.78995268838985,0.20021083919285407,-38.90874599894235,0.0,0.20190639281724967,-38.58200119220952,0.0,1600
+M2,D_times_A,7.384856010902659,0.5025339277936252,14.695238674383369,6.915439606117907e-49,0.578672499828722,12.761719302521652,2.6821497823790138e-37,1600
+M2,snr_c_times_D,1.1268968903282741,0.17143361667230803,6.573371735383238,4.918844766623638e-11,0.17323759829331573,6.50492099538507,7.773422263581458e-11,1600
+M2,snr_c_times_A,0.704181797068692,0.28955800686439265,2.431919616709056,0.015019040074244127,0.30601783099654495,2.301113614116958,0.021385210006785477,1600
+CLUSTER_ROBUST_RESULTS
+method=analytic cluster sandwich; correction=G/(G-1)*(N-1)/(N-k); statsmodels_not_installed=1
+model,term,coefficient,cluster_robust_se,cluster_robust_z,cluster_robust_p,n_clusters
+M0,intercept,2.794000711466172,0.06292290949918103,44.403552437487605,0.0,1600
+M0,snr_c,2.416883093804596,0.0607300242710507,39.797169897669484,0.0,1600
+M0,abs_linear_drift_hz,-4.038794323543063,0.09538589525979571,-42.34163041131908,0.0,1600
+M0,A_res_hz,-6.57541691399993,0.16263499013817106,-40.43051810937857,0.0,1600
+M1,intercept,3.0223480384957475,0.06681697182552782,45.23323874041598,0.0,1600
+M1,snr_c,2.4639802729951543,0.06070723885369759,40.587915370904355,0.0,1600
+M1,abs_linear_drift_hz,-4.527605317892325,0.10245285984261501,-44.19208331370638,0.0,1600
+M1,A_res_hz,-8.023269740359375,0.21034180877720296,-38.143960950995414,0.0,1600
+M1,D_times_A,7.639311984508267,0.5700387504901631,13.401390656230651,5.934072046294789e-41,1600
+M2,intercept,2.9052642976459344,0.06390222274684898,45.46421349309313,0.0,1600
+M2,snr_c,1.8537342174402147,0.10622015770797913,17.45181194831689,3.3348393677317863e-68,1600
+M2,abs_linear_drift_hz,-4.468739842837615,0.10251678155571695,-43.59032516455753,0.0,1600
+M2,A_res_hz,-7.78995268838985,0.20190639281724967,-38.58200119220952,0.0,1600
+M2,D_times_A,7.384856010902659,0.578672499828722,12.761719302521652,2.6821497823790138e-37,1600
+M2,snr_c_times_D,1.1268968903282741,0.17323759829331573,6.50492099538507,7.773422263581458e-11,1600
+M2,snr_c_times_A,0.704181797068692,0.30601783099654495,2.301113614116958,0.021385210006785477,1600
+BOOTSTRAP_BDA
+{"B": 1000, "failed": 0, "failure_reasons": {}, "median_bDA": 7.601168550481585, "percentile_2_5": 6.5722407530652305, "percentile_97_5": 8.813248828381129, "rng_seed": 2026092900, "successful": 1000}
+MODEL_COMPARISON
+row_type,comparison,n_rows,n_parameters,log_likelihood,AIC,BIC,LR_statistic,LR_df,LR_p,method
+model,M0,12000,4.0,-5275.816373684191,10559.632747368381,10589.203395083461,,,,ordinary binomial logit maximum likelihood
+model,M1,12000,5.0,-5156.1540755497035,10322.308151099407,10359.271460743257,,,,ordinary binomial logit maximum likelihood
+model,M2,12000,7.0,-5134.032174772874,10282.064349545748,10333.812983047139,,,,ordinary binomial logit maximum likelihood
+likelihood_ratio,M0 vs M1,12000,,,,,239.32459626897435,1.0,5.520450649486421e-54,ordinary likelihood; matched-seed dependence not accounted for
+likelihood_ratio,M1 vs M2,12000,,,,,44.24380155365907,2.0,2.4693381347965416e-10,ordinary likelihood; matched-seed dependence not accounted for
+BRIER_SCORES
+M0=0.14353300231383176
+M1=0.14023761214808636
+M2=0.13914908853638305
+OBSERVED_VS_PREDICTED
+rows=60 path=/mnt/d/Research/WSPR-hardware/results/analysis/interaction_model/interaction_observed_vs_predicted.csv
+METHOD
+cluster_id=source_dataset|snr_db|seed
+bootstrap=global cluster resampling with replacement; all rows per sampled cluster retained via equivalent grouped binomial counts
+likelihood_ratio=ordinary likelihood; matched-seed dependence not accounted for

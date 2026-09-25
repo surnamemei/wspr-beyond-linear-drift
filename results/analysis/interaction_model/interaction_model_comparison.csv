@@ -1,0 +1,6 @@
+row_type,comparison,n_rows,n_parameters,log_likelihood,AIC,BIC,LR_statistic,LR_df,LR_p,method
+model,M0,12000,4.0,-5275.816373684191,10559.632747368381,10589.203395083461,,,,ordinary binomial logit maximum likelihood
+model,M1,12000,5.0,-5156.1540755497035,10322.308151099407,10359.271460743257,,,,ordinary binomial logit maximum likelihood
+model,M2,12000,7.0,-5134.032174772874,10282.064349545748,10333.812983047139,,,,ordinary binomial logit maximum likelihood
+likelihood_ratio,M0 vs M1,12000,,,,,239.32459626897435,1.0,5.520450649486421e-54,ordinary likelihood; matched-seed dependence not accounted for
+likelihood_ratio,M1 vs M2,12000,,,,,44.24380155365907,2.0,2.4693381347965416e-10,ordinary likelihood; matched-seed dependence not accounted for

@@ -1,0 +1,41 @@
+{
+  "message": "K1ABC FN42 33",
+  "matching_official_symbols": 162,
+  "symbol_count": 162,
+  "packed_message_hex": "F7 0C 23 8B 0D 18 40 00 00 00 00",
+  "information_bit_count": 50,
+  "terminated_bit_count": 81,
+  "convolutional_bit_count": 162,
+  "interleaved_bit_count": 162,
+  "format": "WSJT-X C2: 14-byte name, int32 mode, float64 dial MHz, 45000 float32 I/-Q pairs",
+  "internal_representation": "Python complex (positive Q), unit amplitude while active",
+  "sample_rate_hz": 375,
+  "sample_count": 45000,
+  "container_duration_s": 120.0,
+  "frame_start_sample": 375,
+  "frame_start_s": 1.0,
+  "frame_sample_count": 41472,
+  "frame_duration_s": 110.592,
+  "samples_per_symbol": 256,
+  "tone_spacing_hz": 1.46484375,
+  "tone_frequencies_hz": [
+    -2.197265625,
+    -0.732421875,
+    0.732421875,
+    2.197265625
+  ],
+  "active_amplitude_min": 0.9999999999999999,
+  "active_amplitude_max": 1.0,
+  "python_active_bounds_samples": [
+    375,
+    41847
+  ],
+  "official_active_bounds_samples": [
+    375,
+    41847
+  ],
+  "max_complex_sample_difference_from_official_after_c2_float32": 3.485558294097754e-08,
+  "official_c2_sha256": "2f429d1f7e43e2eba047d2fd4fe100998ba155e8948cdf756a44721ad9e40af2",
+  "python_c2_sha256": "5560b47365945e237d3e6c388abdf1066b5a214a92565f4e87b13e4a445c47e6",
+  "output": "/mnt/d/Research/WSPR-hardware/results/python-reference/260924_0001.c2"
+}

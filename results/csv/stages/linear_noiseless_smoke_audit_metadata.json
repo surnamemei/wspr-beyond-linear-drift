@@ -1,0 +1,21 @@
+{
+  "kind": "linear",
+  "no_noise": true,
+  "values_hz": [
+    0.0
+  ],
+  "snrs_db_2500hz": [],
+  "trials_per_condition": 1,
+  "total_trials": 1,
+  "base_seed": 2026092500,
+  "seed_policy": "base_seed + condition_index*100000 + zero-based trial index",
+  "workers": 1,
+  "python_version": "3.12.3",
+  "wsprd_version": "official WSJT-X 3.0.2; binary SHA256 9e3c2fc14f63c4b4c4e9fcc33b386cd22daf8fe76ce724c5e37f07875e9a3dd9",
+  "decoder_options": [
+    "-H"
+  ],
+  "wall_runtime_seconds": 0.6959879260011803,
+  "trial_csv": "/mnt/d/Research/WSPR-hardware/results/csv/stages/linear_noiseless_smoke_audit_trials.csv",
+  "summary_csv": "/mnt/d/Research/WSPR-hardware/results/csv/stages/linear_noiseless_smoke_audit_summary.csv"
+}
