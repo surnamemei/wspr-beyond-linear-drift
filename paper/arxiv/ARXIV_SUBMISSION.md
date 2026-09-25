@@ -26,8 +26,8 @@ License: consider arXiv's CC BY 4.0 option after checking any intended venue's p
 
 Before submission:
 
-- TODO: Confirm corresponding email address; it is intentionally omitted from the PDF.
-- TODO: Confirm whether to include an ORCID; none is asserted here.
+- Confirmed corresponding email: jmei0175@uni.sydney.edu.au; the existing arXiv PDF intentionally omits email.
+- Confirmed ORCID: https://orcid.org/0009-0007-2901-3285; the existing arXiv PDF does not display it.
 - TODO: Review arXiv category and cross-list selection in the submission form.
 - TODO: Review the irreversible license selection and intended venue policy.
 - TODO: Check the final uploaded source preview against the locally compiled PDF.

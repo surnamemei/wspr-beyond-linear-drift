@@ -1,14 +1,17 @@
 cff-version: 1.2.0
 message: >-
-  This repository accompanies an IEEE-style working manuscript. Please cite
-  the associated manuscript once its author list and persistent citation are
-  finalized. No publication or peer-review status is claimed here.
+  Cite this archived research software and data release using the Zenodo DOI.
+  The associated IEEE-style working manuscript has no assigned article DOI;
+  no publication or peer-review status is claimed here.
 type: software
 title: WSPR-2 robustness under nonstationary frequency instability
 authors:
   - given-names: Jinghang
     family-names: Mei
+    orcid: "https://orcid.org/0009-0007-2901-3285"
+    affiliation: "The University of Sydney"
 repository-code: https://github.com/surnamemei/wspr-beyond-linear-drift
+doi: 10.5281/zenodo.22957460
 license: MIT
-# TODO: Confirm the final manuscript author list, venue, and persistent
-# identifier before adding a preferred-citation entry.
+# TODO: Confirm the venue and persistent manuscript identifier before adding
+# a preferred-citation entry.

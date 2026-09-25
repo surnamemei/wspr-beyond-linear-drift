@@ -10,12 +10,12 @@
 % Official IEEE Access LaTeX template, adjusted 2026-05-13.
 % Submission draft: the DOI is assigned only after acceptance.
 \doi{}
-% TODO: insert confirmed ORCID
-% TODO: insert confirmed University of Sydney email
+% Confirmed author ORCID for submission metadata: https://orcid.org/0009-0007-2901-3285
+% The official ieeeaccess.cls has no ORCID display command; submit this value in the portal.
 \title{Beyond First-Order Drift: Practical WSPR-2 Decoding Robustness under Nonstationary Frequency Instability}
 \author{\uppercase{Jinghang Mei}\authorrefmark{1}}
-\address[1]{School of Electrical and Computer Engineering, The University of Sydney, Sydney, NSW, Australia}
-\corresp{Corresponding author: Jinghang Mei (email address to be confirmed).}
+\address[1]{School of Electrical and Computer Engineering, The University of Sydney, Sydney, NSW, Australia (e-mail: jmei0175@uni.sydney.edu.au)}
+\corresp{Corresponding author: Jinghang Mei (e-mail: jmei0175@uni.sydney.edu.au).}
 \markboth{J. Mei: WSPR-2 Decoding Robustness under Frequency Instability}{J. Mei: WSPR-2 Decoding Robustness under Frequency Instability}
 
 \begin{abstract}
@@ -315,8 +315,7 @@ No RF hardware, measured oscillator trace, field propagation, Doppler, or nonsta
 For production WSJT-X 3.0.2 \texttt{wsprd}, the tested generated signals show an SNR-dependent observation envelope both within its first-order drift model class and for projected beyond-linear residuals. The controlled quadratic grid provided bracketed A50 estimates, while the balanced factorial yielded a nonzero fitted drift $\times$ residual term on the tested log-odds scale. No single tested scalar residual descriptor performed uniformly across all trajectory families. Residual-frequency RMS was the most transferable of the tested scalars in the external stochastic comparisons, but family and support effects remained. These boundaries and scores belong to the specified decoder, waveform, and condition grids, not measured-hardware operation.
 
 \section*{Data and Code Availability}
-Code, trial-level data, derived analyses, figure-generation scripts, decoder provenance, and deterministic seed specifications are available at the project repository, \url{https://github.com/surnamemei/wspr-beyond-linear-drift}. The staged figures in this source tree are presentation copies; the validated result files remain unchanged.
-% TODO: insert a Zenodo DOI only after one has been finalized and verified.
+Code, trial-level data, analyses, figure scripts, decoder provenance, and seeds are at \url{https://github.com/surnamemei/wspr-beyond-linear-drift}; the versioned software/data release is at \url{https://doi.org/10.5281/zenodo.22957460} (Zenodo v0.1.0). The latter DOI identifies the archive, not this article. Staged figures are presentation copies; validated results remain unchanged.
 
 \section*{Acknowledgment}
 OpenAI generative AI systems, including ChatGPT and Codex, assisted with code development and debugging and with drafting and language revision of portions of the Abstract and Sections I--IX, including related-work, methods, results narrative, implications, limitations, and conclusion text. This assistance was editorial and technical, not scientific authorship. The author independently designed the research direction, reviewed the experimental definitions, executed and verified the reported experiments, audited the numerical results and source references, reviewed the scientific interpretation, and approved the final manuscript.
