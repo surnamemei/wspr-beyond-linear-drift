@@ -1,0 +1,5 @@
+arXiv v1 preparation
+Date: 2026-09-25
+Repository commit: 63effe87c3d4fac4e4625a18ab34b7671a3d0307
+Repository: https://github.com/surnamemei/wspr-beyond-linear-drift
+No simulations or raw result changes were made for this package.
