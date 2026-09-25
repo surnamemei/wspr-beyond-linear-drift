@@ -76,7 +76,7 @@ W.~J. Riley, ``Handbook of frequency stability analysis,'' National Institute
 \BIBentrySTDinterwordspacing
 
 \bibitem{mcgee2007}
-J.~A. McGee and D.~A. Howe, ``{Th{\^e}oH} and allan deviation as power-law
+J.~A. McGee and D.~A. Howe, ``{Th{\^e}oH} and {Allan} deviation as power-law
   noise estimators,'' \emph{{IEEE} Transactions on Ultrasonics, Ferroelectrics,
   and Frequency Control}, vol.~54, no.~2, pp. 448--452, 2007.
 
@@ -107,8 +107,8 @@ N.~A. Frissell, S.~R. Kaeppler, D.~F. Sanchez, G.~W. Perry, W.~D. Engelke,
 
 \bibitem{mahmoudian2026}
 A.~Mahmoudian, S.~H. Lotfabadi, and M.~Azimi, ``Ionospheric characterization
-  over iran using multi-frequency {IMB} {HF} transmitters and global {WSPRNET}
-  reception during the 12 november 2025 geomagnetic storm,'' \emph{Space
-  Weather}, vol.~24, no.~6, p. e2025SW004917, 2026.
+  over {Iran} using multi-frequency {IMB} {HF} transmitters and global
+  {WSPRNET} reception during the 12 november 2025 geomagnetic storm,''
+  \emph{Space Weather}, vol.~24, no.~6, p. e2025SW004917, 2026.
 
 \end{thebibliography}

@@ -1,26 +1,36 @@
-\documentclass[conference]{IEEEtran}
+\documentclass{ieeeaccess}
+\usepackage{cite}
 \usepackage{graphicx}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsfonts}
 \usepackage{booktabs}
 \usepackage{xurl}
 \graphicspath{{figures/}}
 
-\title{Beyond First-Order Drift: Practical WSPR-2 Decoding Robustness under Nonstationary Frequency Instability}
-\author{}
-
 \begin{document}
-\maketitle
+% Official IEEE Access LaTeX template, adjusted 2026-05-13.
+% Submission draft: the DOI is assigned only after acceptance.
+\doi{}
+% TODO: insert confirmed ORCID
+% TODO: insert confirmed University of Sydney email
+\title{Beyond First-Order Drift: Practical WSPR-2 Decoding Robustness under Nonstationary Frequency Instability}
+\author{\uppercase{Jinghang Mei}\authorrefmark{1}}
+\address[1]{School of Electrical and Computer Engineering, The University of Sydney, Sydney, NSW, Australia}
+\corresp{Corresponding author: Jinghang Mei (email address to be confirmed).}
+\markboth{J. Mei: WSPR-2 Decoding Robustness under Frequency Instability}{J. Mei: WSPR-2 Decoding Robustness under Frequency Instability}
 
 \begin{abstract}
 Frequency error in a weak-signal transmission has components that a receiver may search explicitly and components outside its trajectory model. We measured this distinction for a generated WSPR-2 signal decoded by the unmodified production WSJT-X 3.0.2 \texttt{wsprd}. The independent waveform implementation matched all 162 reference channel symbols; complex additive white Gaussian noise (AWGN) was calibrated to the 2500-Hz WSPR SNR convention. The AWGN-only 50\% decode point was $-31.519$ dB by interpolation. Exact decoder-aligned linear drift, an orthogonal quadratic residual, thermal-settling shape probes, and stochastic frequency-modulation (FM) families were evaluated on saved, seeded trial grids. Signed linear-drift 50\% boundaries contracted from $+0.698/-0.711$ Hz at $-30.0$ dB to $+0.299/-0.331$ Hz at $-31.0$ dB. The corresponding orthogonal-quadratic 50\% amplitude decreased from $0.441$ to $0.203$ Hz. A balanced factorial fit measured a linear-drift $\times$ residual interaction coefficient of $10.16$ log-odds/Hz$^2$ on its fitted scale. No single tested scalar residual descriptor performed uniformly across trajectory families: maximum phase excursion improved prediction for smooth deterministic shapes, whereas residual-frequency RMS scored better on the held-out random-walk family. A further 5,400-trial sweep of synthetic Allan-targeted FM processes related fractional-frequency stability, carrier scaling, projected residuals, and decode outcomes. The results characterize this decoder and these generated waveforms and grids; no transmitter hardware, measured oscillator, or propagation impairment was tested.
 \end{abstract}
 
-\begin{IEEEkeywords}
+\begin{keywords}
 WSPR-2, weak-signal decoding, frequency drift, oscillator frequency noise, Allan deviation, model mismatch.
-\end{IEEEkeywords}
+\end{keywords}
+
+\titlepgskip=-21pt
+\maketitle
 
 \section{Introduction}
-WSPR-2 combines long symbol duration with low-rate coding for reception at weak signal-to-noise ratio (SNR). The original WSPR account describes its narrow four-tone signal and propagation-beacon purpose~\cite{taylor2010}, and the current official guide documents its protocol and 2500-Hz SNR reference~\cite{wsjtxguide}. Frequency variation across the active frame can be represented by a center-frequency offset, a linear drift, or more complex time dependence. Those categories matter because the tested production decoder searches constant frequency and a linear symbol-index drift~\cite{wsjtx302}, while an imposed residual orthogonal to both remains outside that search trajectory class.
+WSPR-2 combines long symbol duration with low-rate coding for reception at weak signal-to-noise ratio (SNR).\footnote{OpenAI ChatGPT and Codex assisted with manuscript drafting and language revision; the affected sections and level of assistance are identified in the Acknowledgment.} The original WSPR account describes its narrow four-tone signal and propagation-beacon purpose~\cite{taylor2010}, and the current official guide documents its protocol and 2500-Hz SNR reference~\cite{wsjtxguide}. Frequency variation across the active frame can be represented by a center-frequency offset, a linear drift, or more complex time dependence. Those categories matter because the tested production decoder searches constant frequency and a linear symbol-index drift~\cite{wsjtx302}, while an imposed residual orthogonal to both remains outside that search trajectory class.
 
 Related work addresses distinct observables. A non-refereed WSPR-2 transmitter spectral-width article provides technical background on reference stability and frequency-generation choices~\cite{johnson2026}. In communications research, measured oscillator phase-noise spectra have been related to performance, and discrete-time phase-noise models to residual phase error after tracking~\cite{khanzadi2014,piemontese2024}; these are not WSPR decoder studies. Allan and later frequency-stability analyses provide the metrology basis for power-law noise classification~\cite{allan1966,riley2008,mcgee2007}. FST4W spectral-spread reports have been used to examine propagation modes~\cite{griffiths2023}, while WSPRNet and other amateur-radio reports have supported HF propagation sensing~\cite{frissell2019,frissell2022,mahmoudian2026}.
 
@@ -305,8 +315,16 @@ No RF hardware, measured oscillator trace, field propagation, Doppler, or nonsta
 For production WSJT-X 3.0.2 \texttt{wsprd}, the tested generated signals show an SNR-dependent observation envelope both within its first-order drift model class and for projected beyond-linear residuals. The controlled quadratic grid provided bracketed A50 estimates, while the balanced factorial yielded a nonzero fitted drift $\times$ residual term on the tested log-odds scale. No single tested scalar residual descriptor performed uniformly across all trajectory families. Residual-frequency RMS was the most transferable of the tested scalars in the external stochastic comparisons, but family and support effects remained. These boundaries and scores belong to the specified decoder, waveform, and condition grids, not measured-hardware operation.
 
 \section*{Data and Code Availability}
-The repository contains the trial-level CSV files, derived analyses, figure-generation scripts, decoder provenance, and deterministic seed rules used for every numerical result. The staged figures in this source tree are presentation copies; the validated result files remain unchanged.
+Code, trial-level data, derived analyses, figure-generation scripts, decoder provenance, and deterministic seed specifications are available at the project repository, \url{https://github.com/surnamemei/wspr-beyond-linear-drift}. The staged figures in this source tree are presentation copies; the validated result files remain unchanged.
+% TODO: insert a Zenodo DOI only after one has been finalized and verified.
+
+\section*{Acknowledgment}
+OpenAI generative AI systems, including ChatGPT and Codex, assisted with code development and debugging and with drafting and language revision of portions of the Abstract and Sections I--IX, including related-work, methods, results narrative, implications, limitations, and conclusion text. This assistance was editorial and technical, not scientific authorship. The author independently designed the research direction, reviewed the experimental definitions, executed and verified the reported experiments, audited the numerical results and source references, reviewed the scientific interpretation, and approved the final manuscript.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
+\begin{IEEEbiographynophoto}{Jinghang Mei}
+Jinghang Mei is an undergraduate student in electrical engineering at The University of Sydney, Sydney, NSW, Australia. His current interests include weak-signal communication, digital signal processing, oscillator stability, radio-frequency systems, and computational methods for engineering analysis.
+\end{IEEEbiographynophoto}
+\EOD
 \end{document}
