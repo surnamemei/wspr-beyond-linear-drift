@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: >-
+  This repository accompanies an IEEE-style working manuscript. Please cite
+  the associated manuscript once its author list and persistent citation are
+  finalized. No publication or peer-review status is claimed here.
+type: software
+title: WSPR-2 robustness under nonstationary frequency instability
+authors:
+  - given-names: Tom
+    family-names: Mei
+repository-code: https://github.com/surnamemei/wspr-beyond-linear-drift
+license: MIT
+# TODO: Confirm the final manuscript author list, venue, and persistent
+# identifier before adding a preferred-citation entry.

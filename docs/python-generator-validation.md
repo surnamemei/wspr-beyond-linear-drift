@@ -74,12 +74,16 @@ The authoritative validation command is:
 bash scripts/validate_python_generator.sh
 ```
 
-It runs all tests, regenerates the Python C2, invokes the Phase-0 production decoder, and requires one exact decoded message. The decoder command recorded by the successful run is:
+It runs all tests, regenerates the Python C2, invokes the Phase-0 production decoder, and requires one exact decoded message. A checkout-independent equivalent of the recorded decoder invocation, when run from the repository root, is:
 
 ```bash
-bash /mnt/d/Research/WSPR-hardware/scripts/wsprd.sh -H \
-  -a /mnt/d/Research/WSPR-hardware/results/python-reference \
-  260924_0001.c2
+repo=$(pwd)
+(
+  cd "$repo/results/python-reference"
+  bash "$repo/scripts/wsprd.sh" -H \
+    -a "$repo/results/python-reference" \
+    260924_0001.c2
+)
 ```
 
 Actual stdout:

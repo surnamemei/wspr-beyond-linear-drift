@@ -118,6 +118,22 @@ profiles/
 *.pstats
 
 # =========================
+# LaTeX intermediate files
+# =========================
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+# Keep paper/latex/main.bbl tracked to ease manuscript portability.
+# Keep paper/latex/main.tex, references.bib, and main.pdf tracked.
+
+# Machine-local agent instructions belong under archive/local/, not root.
+/AGENTS.md
+
+# =========================
 # Preserve reproducible research outputs
 # =========================
 # Intentionally DO NOT ignore:

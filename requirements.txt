@@ -1,0 +1,9 @@
+# Validated research environment: Python 3.12.3.
+# Third-party imports used by active research and figure scripts:
+numpy
+pandas
+scipy
+matplotlib
+
+# Test runner used by the public reproduction instructions:
+pytest

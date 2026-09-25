@@ -2,7 +2,7 @@
 
 ## Host checked on 2026-09-24
 
-- Windows workspace: `D:\Research\WSPR-hardware`; Ubuntu 24.04 WSL2, x86_64.
+- Development host: Windows workspace with Ubuntu 24.04 WSL2, x86_64. Reproduction does not depend on the original checkout path.
 - Workspace was initially empty; a local Git repository was initialized during Phase 0A.
 - Ubuntu's `wsjtx` candidate was `2.7.0~rc3+repack-1build2`, so the official WSJT-X release package was selected instead.
 
