@@ -1,0 +1,5 @@
+# Decision on existing spectral-width reference [4]
+
+Decision: retain the Johnson and Marcus reference as clearly labeled non-refereed technical background, not as evidence for this manuscript's decoder-probability boundaries or a physical oscillator mechanism.
+
+The [author-uploaded article](https://www.researchgate.net/publication/400563668_How_Narrow_is_Narrow_Enough_An_Investigation_of_WSPR-2_Spectral_Width) identifies R. Barry Johnson and Gene Marcus and reproduces *The LongPath*, January 2026, vol. 50, no. 1, pp. 10–12. Its subject is transmitter spectral-width characterization, reference choices, frequency synthesis, and interference in measurement. The manuscript's Introduction already describes it explicitly as non-refereed and uses it only for that separate background context. It does not supply an AWGN decode-probability threshold and is not used as such. The article is a club technical publication; no peer-review status or DOI was found in the source. The source is therefore kept without upgrading its evidentiary status.

@@ -111,4 +111,20 @@ A.~Mahmoudian, S.~H. Lotfabadi, and M.~Azimi, ``Ionospheric characterization
   {WSPRNET} reception during the 12 {November} 2025 geomagnetic storm,''
   \emph{Space Weather}, vol.~24, no.~6, p. e2025SW004917, 2026.
 
+\bibitem{taylor2008wsjt7}
+\BIBentryALTinterwordspacing
+J.~Taylor, ``Using {WSPR} mode in {WSJT7},'' 2008, author technical document;
+  approximate sensitivity table, not a 50 percent decode-probability estimate;
+  accessed 2026-09-25. [Online]. Available:
+  \url{https://pnwvhfs.org/conference/2008/utilities/wspr-mode.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{estevez2016}
+\BIBentryALTinterwordspacing
+D.~Est{\'e}vez, ``Simulating {JT} modes: How low can they get?'' Oct. 2016,
+  author's documented wsprsim/wsprd experiment; not peer reviewed; accessed
+  2026-09-25. [Online]. Available:
+  \url{https://destevez.net/2016/10/simulating-jt-modes-how-low-can-they-get/}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}
