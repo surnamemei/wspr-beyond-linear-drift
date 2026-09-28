@@ -11,7 +11,7 @@ authors:
     orcid: "https://orcid.org/0009-0007-2901-3285"
     affiliation: "The University of Sydney"
 repository-code: https://github.com/surnamemei/wspr-beyond-linear-drift
-doi: 10.5281/zenodo.22957460
+doi: 10.5281/zenodo.22961777
 license: MIT
 # TODO: Confirm the venue and persistent manuscript identifier before adding
 # a preferred-citation entry.

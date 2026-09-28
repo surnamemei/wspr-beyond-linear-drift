@@ -9,5 +9,5 @@
 - Keywords (6): WSPR-2; weak-signal decoding; frequency drift; oscillator frequency noise; Allan deviation; model mismatch
 - Funding: no funding statement inserted; no external funding record supplied
 - Public code and data repository: <https://github.com/surnamemei/wspr-beyond-linear-drift>
-- Archived software/data release: Zenodo v0.1.0, <https://doi.org/10.5281/zenodo.22957460>
+- Archived software/data release: Zenodo v0.1.0, <https://doi.org/10.5281/zenodo.22961777>
 - IEEE article DOI: unassigned; the Zenodo DOI is not an article DOI

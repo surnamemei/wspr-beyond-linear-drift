@@ -1,6 +1,6 @@
 # WSPR-2 robustness under nonstationary frequency instability
 
-[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22957460.svg)](https://doi.org/10.5281/zenodo.22957460)
+[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22961777.svg)](https://doi.org/10.5281/zenodo.22961777)
 
 This repository contains a generated-signal study of WSPR-2 decoding with the unmodified production WSJT-X 3.0.2 `wsprd`. It includes the waveform generator, seeded experiment runners, trial-level results, derived analyses, and an IEEE-style working manuscript.
 
@@ -69,7 +69,7 @@ Results are specific to production `wsprd` and software-generated signals. There
 
 ## Citation
 
-The versioned research software/data release is archived on [Zenodo (DOI: 10.5281/zenodo.22957460)](https://doi.org/10.5281/zenodo.22957460). Use this DOI when citing the archive. [CITATION.cff](CITATION.cff) identifies the archived release; it does not assign a DOI or publication status to the IEEE manuscript.
+The versioned research software/data release is archived on [Zenodo (DOI: 10.5281/zenodo.22961777)](https://doi.org/10.5281/zenodo.22961777). Use this DOI when citing the archive. [CITATION.cff](CITATION.cff) identifies the archived release; it does not assign a DOI or publication status to the IEEE manuscript.
 
 ## License
 

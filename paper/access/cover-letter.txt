@@ -11,7 +11,7 @@ I believe the manuscript is relevant to IEEE Access because it connects weak-sig
 The code, trial-level data, analysis scripts, decoder provenance, and deterministic seed specifications are publicly available at:
 
 GitHub: https://github.com/surnamemei/wspr-beyond-linear-drift
-Zenodo: https://doi.org/10.5281/zenodo.22957460
+Zenodo: https://doi.org/10.5281/zenodo.22961777
 
 This manuscript is original, has not been published as a journal or conference article, and is not under consideration by another journal or conference. The sole author has approved the submitted version. Any use of generative AI tools in code development and manuscript drafting/editing is disclosed in the Acknowledgment section of the manuscript.
 
