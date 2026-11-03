@@ -1,0 +1,77 @@
+{
+  "scope": "Gate 2C exploratory non-oracle fixed search and actual cumulative work caps; no adaptive method",
+  "messages": [
+    "W1AW FN31 37",
+    "VK3ABC QF22 30"
+  ],
+  "snr_db_2500": [
+    -30.5,
+    -31.0
+  ],
+  "signal_drifts_hz": [
+    0,
+    0.5,
+    -0.5,
+    0.75,
+    -1.5
+  ],
+  "signal_samples_per_message_snr": 40,
+  "signal_seed_rule": "3000000000 + message_index*100000 + snr_index*10000 + trial_index; same seed across five drifts",
+  "signal_count": 800,
+  "pure_noise_count": 200,
+  "pure_noise_seed_rule": "3100000000 + snr_index*10000 + trial_index, snr_index 0..1, trial_index 0..99; noise variance as if unit-power signal at indicated SNR",
+  "multisignal_count": 80,
+  "multi_seed_rule": "3200000000 + snr_index*10000 + condition_index*1000 + trial_index; snr_index,condition_index 0..1; trial_index 0..19",
+  "multi_spec": {
+    "messages": [
+      "W1AW FN31 37",
+      "VK3ABC QF22 30"
+    ],
+    "center_hz": [
+      -12,
+      12
+    ],
+    "start_seconds": [
+      1.0,
+      1.2
+    ],
+    "amplitudes": [
+      1,
+      1
+    ],
+    "initial_phase_radians": [
+      0,
+      1.0471975511965976
+    ],
+    "drift_pairs": [
+      [
+        0,
+        0
+      ],
+      [
+        0.75,
+        -1.5
+      ]
+    ],
+    "each_nominal_snr_2500_db": "same cell SNR; individual active power 1, equal powers"
+  },
+  "noise_convention": "random.Random(seed), Gaussian per component sigma=sqrt((375/2500)*10**(-snr/10)/2), frame 45000 IQ 375Hz; C2 stores I,-Q float32",
+  "C2": "261103_0000.c2; type 2; dial 10.1387 MHz",
+  "generator": "existing wspr.encoder type1, waveform, wsprd symbolwise drift and noise; all versions hashed",
+  "grid": "0,+0.5,-0.5,+1,-1 Hz as Gate2B, B2 score ordering, B3 zero-first",
+  "arms": "A0 production plus instrumented A0 reference; B2 and B3 existing Gate 2B. A1 excluded: earlier cells showed less recovery and substantially higher cost, limited exploratory resources; not a claim of universal inferiority.",
+  "budget_levels": {
+    "low_fano_iterations": 40000000,
+    "medium_fano_iterations": 100000000,
+    "generous": "unlimited"
+  },
+  "common_attempt_caps": {
+    "coarse_hypotheses": 100000,
+    "sync_calls": 10000,
+    "demod_calls": 1000
+  },
+  "budget_definition": "per input, exact Fano main-loop iterations summed across all calls and candidates; increment coarse-search hypothesis, sync call and block-demod call before operation. Stop before a counter would exceed its cap. Fano cap can interrupt a call; retain all prior validated decodes. Same accounting and cap levels on A0, B2, B3. Coarse FFTs and subtraction not converted to Fano iterations; record CPU and time separately.",
+  "validation": "unlimited budget builds reproduce deterministic stdout, stderr, result files against actual original binaries, clean and saved inputs; budget builds use no known payload or drift; Parser V2 parses messages, evaluation checks expected sets afterwards. For multi, unexpected = output not in either target; duplicates assessed from decoded messages and raw trace.",
+  "inference": "per cell n=40 independent seeds; shared noise across drift; per-cell Wilson intervals; paired gain/loss intervals; no pooling as independent; null signal Wilson n=200 and separately by noise level; screening only",
+  "provenance_note": "Public copy of frozen settings; path- and host-specific metadata removed. Generous equivalence instrumentation was resumed with all work-counter caps disabled after the documented stop. Low and medium budgets remain unchanged."
+}

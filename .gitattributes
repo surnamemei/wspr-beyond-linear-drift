@@ -1,0 +1,3 @@
+# Preserve upstream whitespace inside source patches and original CSV CRLF records.
+decoder_extension/patches/*.patch whitespace=-blank-at-eol,-space-before-tab
+results/engineering_extension/*.csv whitespace=cr-at-eol

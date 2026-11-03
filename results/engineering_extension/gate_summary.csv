@@ -1,0 +1,6 @@
+gate,scope,result,interpretation
+0A,official vs Python AWGN screening,no material discrepancy detected,not formal equivalence
+0B,descriptor design matrices,Table 5 RMS uses SNR + peak + RMS,numerical scores reproduce for actual models
+1A-1C,linear drift and oracle diagnostics,recoverable decoder gap,truth intervention is not a practical receiver
+2B,selected 200 input fixed-grid pilot,73 recovered and 0 lost,one message and matched noise across drift
+2C,1080 inputs and 12960 calls,254 recovered and 0 lost in 800 signal inputs,matched drift arms are not independent noise trials

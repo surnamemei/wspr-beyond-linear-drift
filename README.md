@@ -1,76 +1,27 @@
-# WSPR-2 robustness under nonstationary frequency instability
+# WSPR-2 frequency instability and fixed-grid decoder study
 
-[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22961777.svg)](https://doi.org/10.5281/zenodo.22961777)
+This repository studies how software-generated WSPR-2 signals behave under frequency drift and other time-varying frequency impairments. The original investigation used the production WSJT-X 3.0.2 `wsprd` decoder to measure AWGN performance, linear and nonlinear drift responses, and synthetic oscillator models. The submitted IEEE Access manuscript was rejected; it is a historical working document, not a published or journal-validated result.
 
-This repository contains a generated-signal study of WSPR-2 decoding with the unmodified production WSJT-X 3.0.2 `wsprd`. It includes the waveform generator, seeded experiment runners, trial-level results, derived analyses, and an IEEE-style working manuscript.
+A subsequent engineering investigation examined why decoder-aligned linear drift can still cause substantial losses. In the production decoder, the third pass fixes the drift search to zero before trying several block demodulation settings. The extension tests fixed drift hypotheses for an already accepted third-pass candidate. **B2** orders the hypotheses by the received-data synchronization score; **B3** first tries zero drift and then follows a fixed fallback order. Both are receiver-side engineering modifications, not new adaptive drift estimators.
 
-## Research question
+## Engineering findings
 
-How does practical WSPR-2 decoding robustness change when the received frequency trajectory departs from the constant-plus-first-order-linear-drift model used by production `wsprd`?
+- Official `wsprsim` and the Python generator showed no material decode-rate discrepancy in a 900-versus-900 AWGN screening. Formal equivalence was not established; the historical interpolated −31.519 dB SNR50 was not independently confirmed to that precision.
+- The Table 5 model labeled RMS in the rejected manuscript actually used SNR, peak residual frequency **and** RMS. Its numerical scores reproduce for that fitted model, not for a standalone SNR-plus-RMS model. A true SNR-plus-RMS model was subsequently evaluated; see the [descriptor audit](docs/ENGINEERING_EXTENSION.md#descriptor-model-reconciliation).
+- A restricted truth-parameter diagnostic identified a recoverable final-pass gap. It used transmitter truth and is not a practical receiver. On its selected 200-input subset, B2 and B3 recovered the same 73 baseline failures recovered by the restricted D-only oracle, with no observed loss of baseline correct decodes.
+- On an independent synthetic screening of 1,080 inputs and 12,960 invocations, B2 and B3 had identical exact-success outcomes on 800 signal inputs and each recovered 254 A0 failures with no observed A0-success loss. Drift conditions share noise realizations, so those 254 recoveries are not 254 independent noise experiments. Search order, work budget and CPU-time tails materially affected performance.
+- In 200 pure-noise frames, each tested arm and budget produced zero detections. This small sample does not establish a negligible false-alarm rate. The results are synthetic; real-IQ and hardware validation were not performed.
 
-## Main results
+The engineering implementation is **kept**. A novel adaptive decoder is **on hold**, and a publishable new algorithm is **not supported by these results alone**. Read the [engineering extension](docs/ENGINEERING_EXTENSION.md), [research status](docs/RESEARCH_STATUS.md), and [complete result summaries](results/engineering_extension/MANIFEST.md) for conditions, uncertainties and limitations.
 
-- The independent Python generator matched all 162 official WSJT-X channel symbols and produced the expected clean decode.
-- The AWGN-only, interpolated SNR50 was **−31.519 dB** in the 2500-Hz WSPR reference bandwidth.
-- Signed linear-drift D50 estimates were **+0.6981/−0.7105 Hz** at −30.0 dB, **+0.4831/−0.4886 Hz** at −30.5 dB, and **+0.2985/−0.3313 Hz** at −31.0 dB.
-- For the controlled orthogonal quadratic residual, A50 was **0.5776 Hz** at −29.5 dB, **0.4408 Hz** at −30.0 dB, **0.3110 Hz** at −30.5 dB, and **0.2026 Hz** at −31.0 dB.
-- A saved decoder sweep also covers synthetic Allan-targeted white, flicker, and random-walk FM processes. Residual-frequency RMS was the most robust tested scalar cross-family severity descriptor in the reported comparisons, but it is not universal.
+## Build and reproduce
 
-These are measured outcomes for the stated generated waveforms, grids, and decoder; see the [claim audit](paper/claim_audit.md) and [saved core metrics](results/analysis/final_core_results/core_metrics.csv) for provenance and qualifications.
+The fixed-grid source patches and budget instrumentation are in [decoder_extension/](decoder_extension/README.md). A hash-pinned build script applies them to the separately obtained official WSJT-X 3.0.2 source archive in a disposable build directory. A deterministic clean example and Parser V2 are supplied. The [reproducibility guide](docs/REPRODUCIBILITY.md) explains the optional, much longer frozen screening workflow and the limits of public raw-data availability.
 
-## Manuscript
+Existing research code remains under `src/`, `experiments/`, `scripts/`, `tests/`, and `results/`. Historical files in `paper/` retain the rejected manuscript and earlier working drafts. Do not interpret their labels or claims without the corrections above.
 
-- [Compiled IEEE-style working draft](paper/latex/main.pdf)
-- [LaTeX source](paper/latex/main.tex)
+## Archival and licensing
 
-**Manuscript status:** working draft prepared in IEEE style; not yet peer reviewed. No journal publication or article DOI is claimed. The DOI badge identifies the separate archived software/data release.
+The [existing Zenodo archive](https://doi.org/10.5281/zenodo.22961777) refers to an earlier software/data release; it does not contain this later engineering extension, and no new DOI or release is claimed. Raw Gate 0A–2C C2 archives and decoder logs are not uploaded here; [result provenance](docs/RESULT_PROVENANCE.md) distinguishes local archival paths from public artifacts.
 
-## Repository structure
-
-| Path | Contents |
-| --- | --- |
-| `src/` | WSPR encoding, waveform generation, impairments, and analysis primitives |
-| `experiments/` | Core AWGN and frequency-mismatch experiment entry points |
-| `scripts/` | Decoder setup, validation, experiment runners, and analyses |
-| `tests/` | Generator, impairment, and metric tests |
-| `docs/` | Validation, provenance, and research checkpoints |
-| `results/csv/` | Preserved trial-level and condition-summary outputs |
-| `results/analysis/` | Derived statistics, comparisons, and preflight descriptors |
-| `results/figures/` | Data-derived figures |
-| `paper/` | Manuscript, tables, references, figure assets, and audits |
-
-## Reproduction
-
-Use x86_64 Linux or Ubuntu 24.04 under WSL. The working research environment used Python **3.12.3**; install [requirements.txt](requirements.txt) into a Python 3.12 environment and activate it before running these commands. The setup downloads the official WSJT-X package separately and checks its hash.
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-bash scripts/setup_wsprd.sh
-bash scripts/validate_official_reference.sh
-bash scripts/validate_python_generator.sh
-pytest
-```
-
-The validation scripts write their documented reference outputs; inspect existing outputs before rerunning them. Long Monte Carlo jobs are **not** part of the basic setup. Their active runners include `scripts/run_linear_drift_map.py`, `scripts/run_linear_drift_boundary.py`, `scripts/run_quadratic_residual_pilot.py`, `scripts/run_balanced_interaction_confirm.py`, and `scripts/run_physical_oscillator_decoder.py`; see each runner and the associated saved output before launching a job.
-
-## Decoder provenance
-
-All reported decodes used production WSJT-X **3.0.2** `wsprd`, not a modified decoder. The pinned upstream package, executable, matching source archive, hashes, and launch procedure are recorded in [environment.md](environment.md). WSJT-X itself retains its upstream license and is downloaded separately.
-
-## Data and results
-
-Raw scientific trial CSVs remain in `results/csv/`; derived analyses are stored separately under `results/analysis/`. Figures and manuscript tables are derived presentation artifacts. Do not modify raw results in place or treat historical files in `archive/development/` as current experiment code.
-
-## Limitations
-
-Results are specific to production `wsprd` and software-generated signals. There is no RF hardware validation, measured oscillator trace, or Doppler/propagation validation. Thermal and random-walk probes are synthetic, and the Allan-targeted processes are not traceable metrology standards. Boundaries are interpolated within tested grids; the [manuscript](paper/latex/main.pdf) records further limitations.
-
-## Citation
-
-The versioned research software/data release is archived on [Zenodo (DOI: 10.5281/zenodo.22961777)](https://doi.org/10.5281/zenodo.22961777). Use this DOI when citing the archive. [CITATION.cff](CITATION.cff) identifies the archived release; it does not assign a DOI or publication status to the IEEE manuscript.
-
-## License
-
-Repository source code is [MIT-licensed](LICENSE). Result CSVs, figures, and manuscript-derived data products are under [CC BY 4.0 International](LICENSE-DATA). These licenses do not relicense third-party WSJT-X content; obtain WSJT-X separately under its original upstream terms.
+Project-authored code remains under the repository [MIT license](LICENSE), and result data under [CC BY 4.0](LICENSE-DATA). WSJT-X-derived decoder patches and their diagnostic modifications are GPL-covered; see [license details](decoder_extension/LICENSE_INFO.md). This work is not an official WSJT-X distribution or endorsement.

@@ -1,0 +1,43 @@
+--- a/lib/wsprd/fano.c
++++ b/lib/wsprd/fano.c
+@@ -15,6 +15,15 @@
+ #include <stdlib.h>
+ #include <math.h>
+ #include "fano.h"
++#include <stdint.h>
++unsigned long long wb_iter=0,wb_iter_limit=0,wb_fano_calls=0;
++unsigned long long wb_count[3]={0,0,0},wb_limit[3]={0,0,0};
++int wb_hit=0,wb_hit_kind=-1;
++int wb_take(int kind) {
++  if(wb_limit[kind] && wb_count[kind]>=wb_limit[kind]) {wb_hit=1;wb_hit_kind=kind;return 0;}
++  wb_count[kind]++;return 1;
++}
++
+ 
+ struct node {
+   unsigned long encstate;	// Encoder state of next node
+@@ -95,6 +104,7 @@
+ 	 int delta,		   // Threshold adjust parameter
+ 	 unsigned int maxcycles)   // Decoding timeout in cycles per bit
+ {
++  wb_fano_calls++;
+   struct node *nodes;		   // First node
+   struct node *np;	           // Current node
+   struct node *lastnode;	   // Last node
+@@ -152,6 +162,8 @@
+ 
+   // Start the Fano decoder
+   for(i=1;i <= maxcycles;i++) {
++    if(wb_iter_limit && wb_iter>=wb_iter_limit) {wb_hit=1;wb_hit_kind=3;break;}
++    wb_iter++;
+     if((int)(np-nodes) > (int)*maxnp) *maxnp=(int)(np-nodes);
+ #ifdef	debug
+     printf("k=%ld, g=%ld, t=%d, m[%d]=%d, maxnp=%d, encstate=%lx\n",
+@@ -234,6 +246,6 @@
+   *cycles = i+1;
+ 
+   free(nodes);
+-  if(i >= maxcycles) return -1;	          // Decoder timed out
++  if(wb_hit || i >= maxcycles) return -1;	          // Decoder timed out
+   return 0;		                  // Successful completion
+ }

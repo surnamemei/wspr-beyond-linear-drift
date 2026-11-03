@@ -1,0 +1,270 @@
+--- a/lib/wsprd/wsprd.c
++++ b/lib/wsprd/wsprd.c
+@@ -36,6 +36,22 @@
+ #include <time.h>
+ #include <fftw3.h>
+ #include <errno.h>
++#include <stdarg.h>
++extern unsigned long long wb_iter,wb_iter_limit,wb_fano_calls,wb_count[3],wb_limit[3];
++extern int wb_hit,wb_hit_kind;
++extern int wb_take(int);
++
++
++static FILE *trace_file = NULL;
++static void trace_event(const char *format, ...) {
++    if (!trace_file) return;
++    va_list args;
++    va_start(args, format);
++    vfprintf(trace_file, format, args);
++    va_end(args);
++    fputc('\n', trace_file);
++}
++
+ 
+ #include "fano.h"
+ #include "jelinek.h"
+@@ -767,7 +783,7 @@
+     float tfano=0.0,treadwav=0.0,tcandidates=0.0,tsync0=0.0;
+     float tsync1=0.0,tsync2=0.0,tosd=0.0,ttotal=0.0;
+     
+-    struct cand { float freq; float snr; int shift; float drift; float sync; };
++    struct cand { float freq; float snr; int shift; float drift; float sync; int trace_id; };
+     struct cand candidates[200];
+     
+     struct result { char date[7]; char time[5]; float sync; float snr;
+@@ -891,6 +907,17 @@
+         ptr_to_infile=argv[optind];
+     }
+     
++    const char *wb_env=getenv("WSPR_2C_ITER_LIMIT");
++    wb_iter_limit=wb_env?strtoull(wb_env,NULL,10):0;
++    const char *wb_names[3]={"WSPR_2C_COARSE_LIMIT","WSPR_2C_SYNC_LIMIT","WSPR_2C_DEMOD_LIMIT"};
++    for(int bi=0;bi<3;bi++){const char *v=getenv(wb_names[bi]);wb_limit[bi]=v?strtoull(v,NULL,10):0;}
++    const char *trace_path = getenv("WSPR_DIAG_FILE");
++    if (!trace_path || !(trace_file=fopen(trace_path,"w"))) {
++        fprintf(stderr,"Diagnostic trace path unavailable\n");
++        return 2;
++    }
++    trace_event("{\"event\":\"start\",\"maxcycles_per_bit\":%u,\"minsync1\":%.9g,\"minsync2\":%.9g,\"passes\":%d,\"quickmode\":%d,\"more_candidates\":%d,\"stackdecoder\":%d,\"osd_depth\":%d}",
++                maxcycles,minsync1,minsync2,npasses,quickmode,more_candidates,stackdecoder,ndepth);
+     if( stackdecoder ) {
+         stack=calloc(stacksize,sizeof(struct snode));
+     }
+@@ -1111,6 +1138,7 @@
+         // Don't waste time on signals outside of the range [fmin,fmax].
+         i=0;
+         for( j=0; j<npk; j++) {
++            trace_event("{\"event\":\"raw_peak\",\"pass\":%d,\"scan_index\":%d,\"freq_hz\":%.9g,\"snr_db\":%.9g,\"fmin_hz\":%.9g,\"fmax_hz\":%.9g,\"inside_window\":%d}",ipass+1,j,candidates[j].freq,candidates[j].snr,fmin,fmax,candidates[j].freq>=fmin && candidates[j].freq<=fmax);
+             if( candidates[j].freq >= fmin && candidates[j].freq <= fmax ) {
+                 candidates[i]=candidates[j];
+                 i++;
+@@ -1131,6 +1159,11 @@
+             }
+         }
+         
++        trace_event("{\"event\":\"candidate_set\",\"pass\":%d,\"count\":%d,\"df_hz\":%.9g,\"minsync1\":%.9g,\"minsync2\":%.9g,\"maxdrift\":%d}",ipass+1,npk,df,minsync1,minsync2,maxdrift);
++        for (i=0;i<npk;i++) {
++            candidates[i].trace_id=i;
++            trace_event("{\"event\":\"candidate\",\"pass\":%d,\"rank0\":%d,\"freq_hz\":%.9g,\"snr_db\":%.9g}",ipass+1,i,candidates[i].freq,candidates[i].snr);
++        }
+         t0=clock();
+         
+         /* Make coarse estimates of shift (DT), freq, and drift
+@@ -1162,6 +1195,7 @@
+             for (ifr=if0-2; ifr<=if0+2; ifr++) {                      //Freq search
+                 for( k0=-10; k0<22; k0++) {                             //Time search
+                     for (idrift=-maxdrift; idrift<=maxdrift; idrift++) {  //Drift search
++                        if(!wb_take(0)) goto budget_done;
+                         ss=0.0;
+                         pow=0.0;
+                         for (k=0; k<162; k++) {                             //Sum over symbols
+@@ -1194,6 +1228,9 @@
+                 }
+             }
+         }
++        for (i=0;i<npk;i++) {
++            trace_event("{\"event\":\"coarse\",\"pass\":%d,\"rank0\":%d,\"freq_hz\":%.9g,\"shift_samples\":%d,\"drift_hz\":%.9g,\"sync\":%.9g}",ipass+1,candidates[i].trace_id,candidates[i].freq,candidates[i].shift,candidates[i].drift,candidates[i].sync);
++        }
+         tcandidates += (float)(clock()-t0)/CLOCKS_PER_SEC;
+         
+         /*
+@@ -1225,13 +1262,13 @@
+             lagmax=shift1+128;
+             lagstep=64;
+             t0 = clock();
+-            sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
++            if(!wb_take(1)) goto budget_done;            sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
+                                 lagmin, lagmax, lagstep, &drift1, symfac, &sync1, 0);
+             tsync0 += (float)(clock()-t0)/CLOCKS_PER_SEC;
+             
+             fstep=0.25; ifmin=-2; ifmax=2;
+             t0 = clock();
+-            sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
++            if(!wb_take(1)) goto budget_done;            sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
+                                 lagmin, lagmax, lagstep, &drift1, symfac, &sync1, 1);
+             
+             if(ipass < 2) {
+@@ -1239,11 +1276,11 @@
+                 fstep=0.0; ifmin=0; ifmax=0;
+                 float driftp,driftm,syncp,syncm;
+                 driftp=drift1+0.5;
+-                sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
++                if(!wb_take(1)) goto budget_done;                sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
+                                     lagmin, lagmax, lagstep, &driftp, symfac, &syncp, 1);
+                 
+                 driftm=drift1-0.5;
+-                sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
++                if(!wb_take(1)) goto budget_done;                sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
+                                     lagmin, lagmax, lagstep, &driftm, symfac, &syncm, 1);
+                 
+                 if(syncp>sync1) {
+@@ -1256,19 +1293,20 @@
+             }
+             tsync1 += (float)(clock()-t0)/CLOCKS_PER_SEC;
+             
++            trace_event("{\"event\":\"first_sync\",\"pass\":%d,\"rank0\":%d,\"freq_hz\":%.9g,\"shift_samples\":%d,\"drift_hz\":%.9g,\"sync\":%.9g,\"threshold\":%.9g,\"passed\":%d}",ipass+1,candidates[j].trace_id,f1,shift1,drift1,sync1,minsync1,sync1>minsync1);
+             // fine-grid lag and freq search
+             if( sync1 > minsync1 ) {
+                 
+                 lagmin=shift1-32; lagmax=shift1+32; lagstep=16;
+                 t0 = clock();
+-                sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
++                if(!wb_take(1)) goto budget_done;                sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
+                                     lagmin, lagmax, lagstep, &drift1, symfac, &sync1, 0);
+                 tsync0 += (float)(clock()-t0)/CLOCKS_PER_SEC;
+                 
+                 // fine search over frequency
+                 fstep=0.05; ifmin=-2; ifmax=2;
+                 t0 = clock();
+-                sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
++                if(!wb_take(1)) goto budget_done;                sync_and_demodulate(idat, qdat, npoints, symbols, &f1, ifmin, ifmax, fstep, &shift1,
+                                     lagmin, lagmax, lagstep, &drift1, symfac, &sync1, 1);
+                 tsync1 += (float)(clock()-t0)/CLOCKS_PER_SEC;
+                 
+@@ -1276,6 +1314,7 @@
+                 candidates[j].shift=shift1;
+                 candidates[j].drift=drift1;
+                 candidates[j].sync=sync1;
++                trace_event("{\"event\":\"fine_sync\",\"pass\":%d,\"rank0\":%d,\"freq_hz\":%.9g,\"shift_samples\":%d,\"drift_hz\":%.9g,\"sync\":%.9g}",ipass+1,candidates[j].trace_id,f1,shift1,drift1,sync1);
+             }
+         }
+         
+@@ -1290,6 +1329,7 @@
+                     break;
+                 }
+             }
++            trace_event("{\"event\":\"candidate_decision\",\"pass\":%d,\"rank0\":%d,\"duplicate\":%d,\"duplicate_target_rank0\":%d,\"replaces_target\":%d,\"sync\":%.9g,\"threshold\":%.9g,\"accepted_if_not_duplicate\":%d}",ipass+1,candidates[j].trace_id,idupe,idupe?candidates[k].trace_id:-1,idupe && candidates[j].sync>candidates[k].sync,candidates[j].sync,minsync2,candidates[j].sync>minsync2);
+             if( idupe == 1 ) {
+                 if(candidates[j].sync > candidates[k].sync) candidates[k]=candidates[j];
+             } else if ( candidates[j].sync > minsync2 ) {
+@@ -1314,6 +1354,26 @@
+             not_decoded=1;
+             osd_decode=0;
+             
++            float gate2b_grid[5]={0.0,0.5,-0.5,1.0,-1.0};
++            float gate2b_scores[5]={0};
++            int gate2b_n=(ipass==2 && getenv("WSPR_2B_ENABLE") && strcmp(getenv("WSPR_2B_ENABLE"),"1")==0) ? 5 : 1;
++            if (gate2b_n==5 && 0) {
++                for (int h=0;h<5;h++) {
++                    float fd=f1, dd=gate2b_grid[h], sc=0; int tt=shift1;
++                    if(!wb_take(1)) goto budget_done;                    sync_and_demodulate(idat,qdat,npoints,symbols,&fd,0,0,0.0,&tt,0,0,1,&dd,symfac,&sc,1);
++                    gate2b_scores[h]=sc;
++                    trace_event("{\"event\":\"grid_score\",\"pass\":3,\"rank0\":%d,\"drift_hz\":%.9g,\"sync\":%.9g}",candidates[j].trace_id,gate2b_grid[h],sc);
++                }
++                for(int a=0;a<5;a++) for(int b=4;b>a;b--) if(gate2b_scores[b]>gate2b_scores[b-1]) {
++                    float z=gate2b_scores[b-1];gate2b_scores[b-1]=gate2b_scores[b];gate2b_scores[b]=z;
++                    z=gate2b_grid[b-1];gate2b_grid[b-1]=gate2b_grid[b];gate2b_grid[b]=z;
++                }
++            }
++            for(int gate2b_h=0;gate2b_h<gate2b_n && not_decoded;gate2b_h++) {
++            if(gate2b_n==5) {
++                drift1=gate2b_grid[gate2b_h];
++                trace_event("{\"event\":\"grid_attempt\",\"pass\":3,\"rank0\":%d,\"attempt\":%d,\"drift_hz\":%.9g}",candidates[j].trace_id,gate2b_h,drift1);
++            }
+             ib=1;
+             while( ib <= nblocksize && not_decoded ) {
+                 if (ib < 4) { blocksize=ib; bitmetric=0; }
+@@ -1329,6 +1389,8 @@
+                     
+                     // Get soft-decision symbols
+                     t0 = clock();
++                    if(gate2b_n==5) trace_event("{\"event\":\"grid_demod_drift\",\"pass\":3,\"rank0\":%d,\"attempt\":%d,\"drift_hz\":%.9g}",candidates[j].trace_id,gate2b_h,drift1);
++                    if(!wb_take(2)) goto budget_done;
+                     noncoherent_sequence_detection(idat, qdat, npoints, symbols, &f1,
+                                                    &jittered_shift, &drift1, symfac, &blocksize, &bitmetric);
+                     tsync2 += (float)(clock()-t0)/CLOCKS_PER_SEC;
+@@ -1340,6 +1402,7 @@
+                     }
+                     rms=sqrt(sq/162.0);
+                     
++                    trace_event("{\"event\":\"demod\",\"pass\":%d,\"rank0\":%d,\"blocksize\":%d,\"bitmetric\":%d,\"jitter_samples\":%d,\"rms\":%.9g,\"rms_threshold\":%.9g,\"rms_pass\":%d}",ipass+1,candidates[j].trace_id,blocksize,bitmetric,ii,rms,minrms,rms>minrms);
+                     if(rms > minrms) {
+                         deinterleave(symbols);
+                         t0 = clock();
+@@ -1352,9 +1415,12 @@
+                                                mettab,delta,maxcycles);
+                         }
+                         
++                        trace_event("{\"event\":\"decoder\",\"pass\":%d,\"rank0\":%d,\"path\":\"%s\",\"blocksize\":%d,\"bitmetric\":%d,\"jitter_samples\":%d,\"return_code\":%d,\"cycles\":%u,\"maxcycles_per_bit\":%u,\"metric\":%u}",ipass+1,candidates[j].trace_id,stack?"jelinek":"fano",blocksize,bitmetric,ii,not_decoded,cycles,maxcycles,metric);
+                         tfano += (float)(clock()-t0)/CLOCKS_PER_SEC;
++                        if(wb_hit) goto budget_done;
+                         
+                         if( (ndepth >= 0) && not_decoded ) {
++                            trace_event("{\"event\":\"osd_attempt\",\"pass\":%d,\"rank0\":%d,\"depth\":%d}",ipass+1,candidates[j].trace_id,ndepth);
+                             for(i=0; i<162; i++) {
+                                 fsymbs[i]=symbols[i]-128.0;
+                             }
+@@ -1365,8 +1431,9 @@
+                             for(i=0; i<162; i++) {
+                                 symbols[i]=255*cw[i];
+                             }
+-                            fano(&metric,&cycles,&maxnp,decdata,symbols,nbits,
++                            int trace_fano_result = fano(&metric,&cycles,&maxnp,decdata,symbols,nbits,
+                                  mettab,delta,maxcycles);
++                            trace_event("{\"event\":\"osd_fano\",\"pass\":%d,\"rank0\":%d,\"return_code\":%d,\"cycles\":%u,\"nhardmin\":%d,\"dmin\":%.9g}",ipass+1,candidates[j].trace_id,trace_fano_result,cycles,nhardmin,dmin);
+                             for(i=0; i<11; i++) {
+                                 if( decdata[i]>127 ) {
+                                     message[i]=decdata[i]-256;
+@@ -1411,6 +1478,7 @@
+                 }
+                 ib++;
+             }
++            } /* fixed-grid hypotheses */
+             
+             if( !not_decoded ) {
+                 ndecodes_pass++;
+@@ -1444,6 +1512,7 @@
+                     if(!strcmp(callsign,allcalls[i]) &&
+                        (fabs(f1-allfreqs[i]) <4.0)) dupe=1;
+                 }
++                trace_event("{\"event\":\"validation\",\"pass\":%d,\"rank0\":%d,\"noprint\":%d,\"duplicate\":%d,\"osd_decode\":%d}",ipass+1,candidates[j].trace_id,noprint,dupe,osd_decode);
+                 if( (verbose || !dupe) && !noprint) {
+                     strcpy(allcalls[uniques],callsign);
+                     allfreqs[uniques]=f1;
+@@ -1489,6 +1558,8 @@
+         }
+     }
+     
++budget_done: ;
++    trace_event("{\"event\":\"budget\",\"hit\":%d,\"kind\":%d,\"fano_iterations\":%llu,\"fano_calls\":%llu,\"coarse_evaluations\":%llu,\"sync_calls\":%llu,\"demod_calls\":%llu}",wb_hit,wb_hit_kind,wb_iter,wb_fano_calls,wb_count[0],wb_count[1],wb_count[2]);
+     // sort the result in order of increasing frequency
+     struct result temp;
+     for (j = 1; j <= uniques - 1; j++) {
+@@ -1521,6 +1592,7 @@
+                 decodes[i].jitter);
+         
+     }
++    trace_event("{\"event\":\"result\",\"unique_decodes\":%d}",uniques);
+     printf("<DecodeFinished>\n");
+     
+     fftwf_free(fftin);
+@@ -1532,6 +1604,9 @@
+     }
+     
+     ttotal += (float)(clock()-t00)/CLOCKS_PER_SEC;
++    trace_event("{\"event\":\"runtime\",\"cpu_seconds\":%.9g}",ttotal);
++    if (fclose(trace_file) != 0) return 2;
++    trace_file=NULL;
+     
+     fprintf(ftimer,"%7.2f %7.2f %7.2f %7.2f %7.2f %7.2f %7.2f %7.2f\n\n",
+             treadwav,tcandidates,tsync0,tsync1,tsync2,tfano,tosd,ttotal);

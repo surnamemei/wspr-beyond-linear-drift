@@ -1,0 +1,34 @@
+--- a/lib/wsprd/wsprd.c
++++ b/lib/wsprd/wsprd.c
+@@ -1314,6 +1314,23 @@
+             not_decoded=1;
+             osd_decode=0;
+             
++            /* Fixed-grid retry. WSPR_2B_ENABLE=1 enables the extension. */
++            float gate2b_grid[5]={0.0,0.5,-0.5,1.0,-1.0};
++            float gate2b_scores[5]={0};
++            int gate2b_n=(ipass==2 && getenv("WSPR_2B_ENABLE") && strcmp(getenv("WSPR_2B_ENABLE"),"1")==0) ? 5 : 1;
++            if (gate2b_n==5 && 1) {
++                for (int h=0;h<5;h++) {
++                    float fd=f1, dd=gate2b_grid[h], sc=0; int tt=shift1;
++                    sync_and_demodulate(idat,qdat,npoints,symbols,&fd,0,0,0.0,&tt,0,0,1,&dd,symfac,&sc,1);
++                    gate2b_scores[h]=sc;
++                }
++                for(int a=0;a<5;a++) for(int b=4;b>a;b--) if(gate2b_scores[b]>gate2b_scores[b-1]) {
++                    float z=gate2b_scores[b-1];gate2b_scores[b-1]=gate2b_scores[b];gate2b_scores[b]=z;
++                    z=gate2b_grid[b-1];gate2b_grid[b-1]=gate2b_grid[b];gate2b_grid[b]=z;
++                }
++            }
++            for(int gate2b_h=0;gate2b_h<gate2b_n && not_decoded;gate2b_h++) {
++            if(gate2b_n==5) drift1=gate2b_grid[gate2b_h];
+             ib=1;
+             while( ib <= nblocksize && not_decoded ) {
+                 if (ib < 4) { blocksize=ib; bitmetric=0; }
+@@ -1411,6 +1428,7 @@
+                 }
+                 ib++;
+             }
++            } /* fixed-grid hypotheses */
+             
+             if( !not_decoded ) {
+                 ndecodes_pass++;
